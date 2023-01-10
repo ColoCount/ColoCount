@@ -30,7 +30,7 @@ class UserController
                     echo json_encode([
                         'status' => 'success',
                         "id" => $user->getId(),
-                        'username' => $user->getUsername(),
+                        'username' => $user->getUserName(),
                         'token' => $jwt
                     ]);
                     exit;
@@ -42,5 +42,32 @@ class UserController
             'message' => 'Pas de connexion'
         ]);
         exit;
+    }
+
+    #[Route('/usersColoc', name:"user", methods:["GET"])]
+    public function usersColoc()
+    {
+        $PDO = new UserManager(new PDO());
+
+        $users = $PDO->getAllColocUser(1);
+
+        $tableauUser = [];
+
+        foreach ($users as $user) {
+            $userArray = [
+                "id" => $user->getId(),
+                "userName" => $user->getUserName(),
+                "email" => $user->getEmail(),
+                "password" => $user->getPassword()
+            ];
+
+            $tableauUser[] = $userArray;
+        }
+
+
+        if ($users) {
+            echo json_encode(
+                $tableauUser);
+        }
     }
 }

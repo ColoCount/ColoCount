@@ -11,7 +11,7 @@ private string $dbName;
 private string $userName;
 private string $password;
 
-public function __construct(string $host = "db", string $dbName = "coloCount", string $userName = "root", string $password = "password")
+public function __construct(string $host = "db", string $dbName = "colo", string $userName = "root", string $password = "password")
 {
 $this->host = $host;
 $this->dbName = $dbName;

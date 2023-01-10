@@ -24,7 +24,7 @@ services:
     restart: always
     #Les variables d'environnement
     environment:
-      MYSQL_DATABASE: ColoCount
+      MYSQL_DATABASE: colo
       MYSQL_ROOT_PASSWORD: password
     volumes:
       # Pour lancer un dump automatiquement au montage du conteneur
