@@ -8,6 +8,7 @@ final class User extends BaseEntity
 {
     private int $id;
     private string $username;
+    private string $email;
     private string $password;
 
     /**
@@ -20,12 +21,10 @@ final class User extends BaseEntity
 
     /**
      * @param int $id
-     * @return User
      */
-    public function setId(int $id): User
+    public function setId(int $id): void
     {
         $this->id = $id;
-        return $this;
     }
 
     /**
@@ -37,13 +36,27 @@ final class User extends BaseEntity
     }
 
     /**
-     * @param string $username
-     * @return User
+     * @param string $userName
      */
-    public function setUsername(string $username): User
+    public function setUserName(string $username): void
     {
         $this->username = $username;
-        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
     }
 
     /**
@@ -56,13 +69,13 @@ final class User extends BaseEntity
 
     /**
      * @param string $password
-     * @return User
      */
-    public function setPassword(string $password): User
+    public function setPassword(string $password): void
     {
         $this->password = $password;
-        return $this;
     }
+
+
 
 
 }
