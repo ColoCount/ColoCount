@@ -2,7 +2,7 @@
 DROP TABLE IF EXISTS `Users`;
 CREATE TABLE IF NOT EXISTS `Users`(
                                       `id`       integer NOT NULL AUTO_INCREMENT,
-                                      `userName` varchar(40),
+                                      `username` varchar(40),
     `email`    varchar(40),
     `password` varchar(255) NOT NULL UNIQUE,
     PRIMARY KEY (`id`)
