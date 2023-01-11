@@ -1,70 +1,98 @@
-/* Création de la table `Users` */
-DROP TABLE IF EXISTS `Users`;
-CREATE TABLE IF NOT EXISTS `Users`(
+/* Création de la table `users` */
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users`(
                                       `id`       integer NOT NULL AUTO_INCREMENT,
                                       `username` varchar(40),
     `email`    varchar(40),
     `password` varchar(255) NOT NULL UNIQUE,
+    `created_date`  datetime,
+    `updated_date`  datetime,
+    `deleted_date`  datetime,
     PRIMARY KEY (`id`)
     );
 
 /* Insertion d'un utilisateur avec le role admin dans la table `Users`*/
-INSERT INTO `Users` (`id`, `username`, `email`, `password`) VALUES
-    (1, 'Admin', 'Admin@gmail.com', '$2y$10$OgGilVcpTrARPRsrx8YZf.GRCGW3EAugei7htlwYaGDdbROVRY2pu');
-/* INSERT INTO `Users` (`id`, `username`, `email`, `password`) VALUES
-(2, 'Pas admin', 'pasAdmin@gmail.com', '$2y$10$OgGilVcpTrARPRsrx8YZf.GRCGW3EAugei7htlwYaGDdbROVRY2pu');*/
+INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
+    (1, 'Admin', 'Admin@gmail.com', '$2y$10$OgGilVcpTrARPRsrx8YZf');
+
 
 
 /* Création de la table `Colocation` */
-DROP TABLE IF EXISTS `Colocation`;
-CREATE TABLE IF NOT EXISTS `Colocation` (
+DROP TABLE IF EXISTS `colocation`;
+CREATE TABLE IF NOT EXISTS `colocation` (
                                             `id`            integer NOT NULL AUTO_INCREMENT,
                                             `nom`           varchar(255) NOT NULL,
-    `totalSomme`    integer(11) NOT NULL,
-    `date` datetime NOT NULL,
+    `created_date`  datetime,
+    `updated_date`  datetime,
+    `deleted_date`  datetime,
     PRIMARY KEY (`id`)
     );
 
 /* Insertion d'un post du compte Admin dans la table `Post` */
-INSERT INTO `Colocation` (`id`,`nom`, `totalSomme`, `date`) VALUES
-    (1,'LaColoc', 200, '2022-12-10 14:15:24');
+INSERT INTO `colocation` (`id`,`nom`) VALUES
+    (1,'LaColoc');
 
 
 
-/* Création de la table `ColocUser` */
-DROP TABLE IF EXISTS `ColocUser`;
-CREATE TABLE IF NOT EXISTS `ColocUser` (
-    `idUser` integer(11) NOT NULL,
-    `idColoc` integer(11) NOT NULL,
-    `role` varchar(20) NOT NULL,
-    `dateArriver` datetime NOT NULL,
-    FOREIGN KEY(`idUser`) REFERENCES `Users`(`id`) ON DELETE CASCADE,
-    FOREIGN KEY(`idColoc`) REFERENCES `Colocation`(`id`) ON DELETE CASCADE
+/* Création de la table `charges` */
+DROP TABLE IF EXISTS `charges`;
+CREATE TABLE IF NOT EXISTS `charges` (
 
-    );
-
-/* Insertion d'un post du compte Admin dans la table `Post` */
-INSERT INTO `ColocUser` (`idUser`,`idColoc`, `role`, `dateArriver`) VALUES
-    (1,1,'admin', '2022-12-10 14:15:24');
-
-
-/* Création de la table `Depenses` */
-DROP TABLE IF EXISTS `Depenses`;
-CREATE TABLE IF NOT EXISTS `Depenses` (
-
-                                          `id`      integer NOT NULL AUTO_INCREMENT,
-                                          `montant` integer(5) NOT NULL,
-    `type`    varchar(20) NOT NULL,
-    `date`    date NOT NULL,
-    `idUser`  integer(11) NOT NULL,
-    `idColoc` integer(11) NOT NULL,
-    FOREIGN KEY(`idUser`) REFERENCES `Users`(`id`) ON DELETE CASCADE,
-    FOREIGN KEY(`idColoc`) REFERENCES `Colocation`(`id`) ON DELETE CASCADE,
+                                         `id`      integer NOT NULL AUTO_INCREMENT,
+                                         `nom` varchar(20) NOT NULL,
+    `montant` integer(5) NOT NULL,
+    `categorie`    varchar(20) NOT NULL,
+    `created_date`  datetime,
+    `updated_date`  datetime,
+    `deleted_date`  datetime,
     PRIMARY KEY(`id`)
 
     );
 
 /* Insertion d'un post du compte Admin dans la table `Post` */
-INSERT INTO `Depenses` (`id`,`montant`, `type`, `date`,`idUser`, `idColoc`) VALUES
-    (1,205, 'courses', '2022-12-10 14:15:24', 1, 1);
+INSERT INTO `charges` (`id`,`nom`, `montant`, `categorie`) VALUES
+    (1, 'courses',200, 'courses');
 
+
+
+/* Création de la table `coloc_user` */
+DROP TABLE IF EXISTS `colocation_user`;
+CREATE TABLE IF NOT EXISTS `colocation_user` (
+    `user_id` integer(11) NOT NULL,
+    `colocation_id` integer(11) NOT NULL,
+    `account` varchar(20) NOT NULL,
+    `role` varchar(20) NOT NULL,
+    FOREIGN KEY(`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+    FOREIGN KEY(`colocation_id`) REFERENCES `colocation`(`id`) ON DELETE CASCADE
+
+    );
+
+/* Insertion d'un post du compte Admin dans la table `Post` */
+INSERT INTO `colocation_user` (`user_id`,`colocation_id`, `account`, `role`) VALUES
+    (1,1,'-200', 'admin');
+
+
+/* Création de la table `depense_user` */
+DROP TABLE IF EXISTS `depense_user`;
+CREATE TABLE IF NOT EXISTS `depense_user` (
+    `user_id` integer(11) NOT NULL,
+    `charges_id` integer(11) NOT NULL
+
+    );
+
+/* Insertion d'un post du compte Admin dans la table `Post` */
+INSERT INTO `depense_user` (`user_id`,`charges_id`) VALUES
+    (1,1);
+
+
+/* Création de la table `depense_colocation` */
+DROP TABLE IF EXISTS `depense_colocation`;
+CREATE TABLE IF NOT EXISTS `depense_colocation` (
+    `colocation_id` integer(11) NOT NULL,
+    `charges_id` integer(11) NOT NULL
+
+    );
+
+/* Insertion d'un post du compte Admin dans la table `Post` */
+INSERT INTO `depense_colocation` (`colocation_id`,`charges_id`) VALUES
+    (1,1);
