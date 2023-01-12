@@ -31,7 +31,7 @@ final class Colocation extends BaseEntity
     /**
      * @return string
      */
-    public function getNom(): string
+    public function getName(): string
     {
         return $this->name;
     }

@@ -4,26 +4,26 @@ namespace App\Model\Entity;
 
 use App\Base\BaseEntity;
 
-final class Charge_user extends BaseEntity
+class Colocation_user extends BaseEntity
 {
     private int $colocation_id;
     private int $user_id;
-    private float $account;
+    private float $amount;
     private string $role;
 
     /**
      * @return int
      */
-    public function getColocationId(): int
+    public function getColocation_Id(): int
     {
         return $this->colocation_id;
     }
 
     /**
      * @param int $colocation_id
-     * @return Charge_user
+     * @return Colocation_user
      */
-    public function setColocationId(int $colocation_id): Charge_user
+    public function setColocation_Id(int $colocation_id): Colocation_user
     {
         $this->colocation_id = $colocation_id;
         return $this;
@@ -32,16 +32,16 @@ final class Charge_user extends BaseEntity
     /**
      * @return int
      */
-    public function getUserId(): int
+    public function getUser_Id(): int
     {
         return $this->user_id;
     }
 
     /**
      * @param int $user_id
-     * @return Charge_user
+     * @return Colocation_user
      */
-    public function setUserId(int $user_id): Charge_user
+    public function setUser_Id(int $user_id): Colocation_user
     {
         $this->user_id = $user_id;
         return $this;
@@ -50,18 +50,18 @@ final class Charge_user extends BaseEntity
     /**
      * @return float
      */
-    public function getAccount(): float
+    public function getAmount(): float
     {
-        return $this->account;
+        return $this->amount;
     }
 
     /**
-     * @param float $account
-     * @return Charge_user
+     * @param float $amount
+     * @return Colocation_user
      */
-    public function setAccount(float $account): Charge_user
+    public function setAmount(float $amount): Colocation_user
     {
-        $this->account = $account;
+        $this->amount = $amount;
         return $this;
     }
 
@@ -75,13 +75,13 @@ final class Charge_user extends BaseEntity
 
     /**
      * @param string $role
-     * @return Charge_user
+     * @return Colocation_user
      */
-    public function setRole(string $role): Charge_user
+    public function setRole(string $role): Colocation_user
     {
         $this->role = $role;
         return $this;
     }
 
-}
 
+}
