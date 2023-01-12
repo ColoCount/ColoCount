@@ -1,0 +1,55 @@
+.page{
+    background-color: white;
+}
+.vh-100{
+    height: auto;
+    min-height: 100vh;
+    padding: 30px;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
+}
+
+input{
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 17px;
+    padding: 17px 28px;
+}
+
+.fields-column{
+    display: flex;
+    flex-direction: column;
+}
+.fields-row{
+    display: flex;
+}
+
+
+@media screen and (max-width: 1024px){
+    .vh-100{
+        padding: 30px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .vh-100{
+        padding: 10px;
+    }
+    .fields-row{
+        flex-direction: column;
+    }
+    input{
+        border-radius: 15px;
+        padding: 15px 20px;
+        width: 80%;
+    }
+}
