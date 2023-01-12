@@ -12,7 +12,7 @@ final class Charge_user extends BaseEntity
     /**
      * @return int
      */
-    public function getUserId(): int
+    public function getUser_Id(): int
     {
         return $this->user_id;
     }
@@ -21,7 +21,7 @@ final class Charge_user extends BaseEntity
      * @param int $user_id
      * @return Charge_user
      */
-    public function setUserId(int $user_id): Charge_user
+    public function setUser_Id(int $user_id): Charge_user
     {
         $this->user_id = $user_id;
         return $this;
@@ -30,7 +30,7 @@ final class Charge_user extends BaseEntity
     /**
      * @return int
      */
-    public function getChargeId(): int
+    public function getCharge_Id(): int
     {
         return $this->charge_id;
     }
@@ -39,13 +39,11 @@ final class Charge_user extends BaseEntity
      * @param int $charge_id
      * @return Charge_user
      */
-    public function setChargeId(int $charge_id): Charge_user
+    public function setCharge_Id(int $charge_id): Charge_user
     {
         $this->charge_id = $charge_id;
         return $this;
     }
-
-
 
 }
 

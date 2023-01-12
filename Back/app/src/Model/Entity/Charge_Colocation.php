@@ -12,7 +12,7 @@ final class Charge_colocation extends BaseEntity
     /**
      * @return int
      */
-    public function getChargeId(): int
+    public function getCharge_Id(): int
     {
         return $this->charge_id;
     }
@@ -21,7 +21,7 @@ final class Charge_colocation extends BaseEntity
      * @param int $charge_id
      * @return Charge_colocation
      */
-    public function setChargeId(int $charge_id): Charge_colocation
+    public function setCharge_Id(int $charge_id): Charge_colocation
     {
         $this->charge_id = $charge_id;
         return $this;
@@ -30,7 +30,7 @@ final class Charge_colocation extends BaseEntity
     /**
      * @return int
      */
-    public function getColocationId(): int
+    public function getColocation_Id(): int
     {
         return $this->colocation_id;
     }
@@ -39,7 +39,7 @@ final class Charge_colocation extends BaseEntity
      * @param int $colocation_id
      * @return Charge_colocation
      */
-    public function setColocationId(int $colocation_id): Charge_colocation
+    public function setColocation_Id(int $colocation_id): Charge_colocation
     {
         $this->colocation_id = $colocation_id;
         return $this;
