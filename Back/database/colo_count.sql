@@ -22,7 +22,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`,`created_at`,`updated
 /* Création de la table `colocation` */
 DROP TABLE IF EXISTS `colocation`;
 CREATE TABLE IF NOT EXISTS `colocation` (
-    `id`          integer NOT NULL AUTO_INCREMENT,
+    `id`          integer(11) NOT NULL AUTO_INCREMENT,
     `name`         varchar(255) NOT NULL,
     `description` varchar(255),
     `created_at`  datetime DEFAULT NULL,
