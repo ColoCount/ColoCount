@@ -28,4 +28,18 @@ class ColocationManager extends BaseManager
         
     }
 
+    public function addColoc($name,$description,$created_at,$updated_at):void
+    {
+        $sql = "INSERT INTO `colocation` (`name`,`description`,`created_at`,`updated_at`) VALUES (:name, :description,:created_at,:updated_at)";
+
+        $query = $this->pdo->prepare($sql);
+        $query->bindValue(':name', $name, \PDO::PARAM_STR);
+        $query->bindValue(':description', $description, \PDO::PARAM_STR);
+        $query->bindValue(':created_at', $created_at, \PDO::PARAM_STR);
+        $query->bindValue(':updated_at', $updated_at, \PDO::PARAM_STR);
+
+        $query->execute();
+
+    }
+
 }
