@@ -32,9 +32,10 @@ CREATE TABLE IF NOT EXISTS `colocation` (
 );
 
 /* Insertion d'une colocation dans la table `colocation` */
-INSERT INTO `colocation` (`id`,`name`) VALUES
-    (1,'LaColoc','Une coloc pour ! tous pour la coloc');
-    (2,'LaColoc2','Une coloc Abérrante');
+INSERT INTO `colocation` (`id`,`name`,`description`,`created_at`,`updated_at`) VALUES
+    (1,'LaColoc','Une coloc pour ! tous pour la coloc','2023-01-11 11:19:14','2023-01-11 11:19:14');
+INSERT INTO `colocation` (`id`,`name`,`description`,`created_at`,`updated_at`) VALUES
+    (2,'LaColoc2','Une coloc Abérrante','2023-01-11 11:19:14','2023-01-11 11:19:14');
 
 
 
@@ -67,6 +68,8 @@ CREATE TABLE IF NOT EXISTS `colocation_user` (
 /* Insertion d'un colocation_user du compte Admin dans la table `colocation_user` */
 INSERT INTO `colocation_user` (`user_id`,`colocation_id`, `amount`, `role`) VALUES
     (1,1,0,'admin');
+INSERT INTO `colocation_user` (`user_id`,`colocation_id`, `amount`, `role`) VALUES
+    (1,2,0,'admin');
     
 
 /* Création de la table `depense_user` */
