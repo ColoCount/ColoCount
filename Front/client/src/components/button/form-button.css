@@ -1,0 +1,25 @@
+form-button {
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 9px 14px;
+    gap: 10px;
+
+    width: 144px;
+    height: 40px;
+
+    /* FOND */
+
+    background: #FFFFFF;
+    /* SHADOW 1 */
+
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.04);
+    border-radius: 60px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}

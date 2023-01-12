@@ -1,0 +1,27 @@
+input {
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px 30px;
+
+    width: 100%;
+    height: 100%;
+
+    /* WHITE */
+
+    background: #FFFFFF;
+    /* GREY/GREY STROKE */
+
+    border: 1px solid #EDEDED;
+    border-radius: 20px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}

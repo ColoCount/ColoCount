@@ -1,0 +1,12 @@
+form {
+    box-sizing: border-box;
+    /* WHITE */
+
+    background: #FFFFFF;
+    /* GREY/GREY STROKE */
+
+    border: 1px solid #EDEDED;
+    width: 50%;
+    border-radius: 20px;
+    padding: 20px 30px;
+}

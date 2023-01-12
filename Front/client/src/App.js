@@ -5,11 +5,12 @@ import './assets/css/box.css';
 import './assets/css/page-login-register.css';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import NavBar from './components/navBar/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <Register/>
+      <NavBar/>
     </div>
   );
 }
