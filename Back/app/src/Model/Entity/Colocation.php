@@ -7,9 +7,11 @@ use App\Base\BaseEntity;
 final class Colocation extends BaseEntity
 {
     private int $id;
-    private string $nom;
-    private string $totalSomme;
-    private string $date;
+    private string $name;
+    private ?string $description;
+    private string $created_at;
+    private string $updated_at;
+    private ?string $deleted_at;
 
     /**
      * @return int
@@ -21,59 +23,102 @@ final class Colocation extends BaseEntity
 
     /**
      * @param int $id
+     * @return Colocation
      */
-    public function setId(int $id): void
+    public function setId(int $id): Colocation
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getNom(): string
+    public function getName(): string
     {
-        return $this->nom;
+        return $this->name;
     }
 
     /**
-     * @param string $nom
+     * @param string $name
+     * @return Colocation
      */
-    public function setNom(string $nom): void
+    public function setName(string $name): Colocation
     {
-        $this->nom = $nom;
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string|null $description
+     * @return Colocation
+     */
+    public function setDescription(?string $description): Colocation
+    {
+        $this->description = $description;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getTotalSomme(): string
+    public function getCreated_At(): string
     {
-        return $this->totalSomme;
+        return $this->created_at;
     }
 
     /**
-     * @param string $totalSomme
+     * @param string $created_at
+     * @return Colocation
      */
-    public function setTotalSomme(string $totalSomme): void
+    public function setCreated_At(string $created_at): Colocation
     {
-        $this->totalSomme = $totalSomme;
+        $this->created_at = $created_at;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getDate(): string
+    public function getUpdated_At(): string
     {
-        return $this->date;
+        return $this->updated_at;
     }
 
     /**
-     * @param string $date
+     * @param string $updated_at
+     * @return Colocation
      */
-    public function setDate(string $date): void
+    public function setUpdated_At(string $updated_at): Colocation
     {
-        $this->date = $date;
+        $this->updated_at = $updated_at;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDeleted_At(): ?string
+    {
+        return $this->deleted_at;
+    }
+
+    /**
+     * @param string|null $deleted_at
+     * @return Colocation
+     */
+    public function setDeleted_At(?string $deleted_at): Colocation
+    {
+        $this->deleted_at = $deleted_at;
+        return $this;
     }
 
 }
-

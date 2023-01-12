@@ -2,29 +2,28 @@
 
 namespace App\Controller;
 
+use App\Base\CookieHelper;
 use App\Model\Factory\PDO;
 use App\Model\Route\Route;
 use App\Model\Manager\UserManager;
 use App\Service\JWTHelper;
-use App\Base\CookieHelper;
-
 
 class UserController
 {
-    #[Route('/login', name:"login", methods:["POST"])]
+    #[Route('/login', name: "login", methods: ["POST"])]
     public function login(){
-        if($_SERVER['REQUES_METHOD'] == 'POST'){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(!empty($_POST)){
-                if(isset($_POST['login'],$_POST['password']) && !empty($_POST['login']) && !empty($_POST['password'])){
-                    $login = htmlspecialchars(strip_tags($_POST['login']));
+                if(isset($_POST["username"], $_POST["password"]) && !empty($_POST["username"] && !empty($_POST["password"]))) {
+                    $username = htmlspecialchars(strip_tags($_POST['username']));
                     $password = htmlspecialchars(strip_tags($_POST['password']));
-
+                    
                     $connectioPDO = new UserManager(new PDO());
-                    $user = $connectioPDO->login($login,$password);
-
+                    $user = $connectioPDO->login($username,$password);
+                    
                     if($user){
                         $jwt = JWTHelper::buildJWT($user);
-                        
+
                         CookieHelper::setCookie($jwt);
                         
                         echo json_encode([

@@ -38,6 +38,7 @@ const Login = () => {
             <p className="para-16 medium text-center">Tu n’as pas encore de compte ? <a className="link" href="#">Je m'inscris</a></p>
         </div>
     </div>
+
   )
 }
 

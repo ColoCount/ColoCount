@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { Button } from '../../components/Button/Button';
+
 
 const Register = () => {
     const [email, setEmail] = useState("");
@@ -63,6 +65,7 @@ const Register = () => {
               <p className="para-16 medium text-center">Tu as déjà un compte ? <a className="link" href="#">Je me connecte</a></p>
           </div>
       </div>
+ 
   )
 }
 
