@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import {Link} from "react-router-dom";
+import iconArrow from "../../assets/images/icons/button-arrow.svg"
 
 const Coloc = () => {
   const [colocations, setColocations] = useState([]);
@@ -21,16 +23,29 @@ if (loading) {
   return <p>Loading...</p>;
 }
 return (
-  <div className="post">
-    {colocations.map(colocation => (
-      <div key={colocation.id}>
-        <h2>{colocation.name}</h2>
-        <p>{colocation.description}</p>
-        <p>Créé le: {colocation.created_at}</p>
-        <button>mon button</button>
+  <div className="vh-100 page page-home">
+      <div className='home-container' >
+          <h1 className="text-center">Mes colocs</h1>
+          <div className="home-cards">
+              {colocations.map(colocation => (
+                  <div className="box-model box-shadow-1" key={colocation.id}>
+                      <div className="text-box">
+                          <h2>{colocation.name}</h2>
+                          <p className="para-16 description-coloc">{colocation.description}</p>
+                      </div>
+                      <div className="infos-box">
+                          <p className="para-15 bold">Créé le: {colocation.created_at}</p>
+                          <div className="icon-arrow box-shadow-1">
+                              <img src={iconArrow} alt=""/>
+                          </div>
+                      </div>
+                  </div>
+              ))}
+          </div>
+          <div className="bloc-btn btn-icon btn-add-coloc">
+              <button type="submit" >Ajouter une coloc</button>
+          </div>
       </div>
-    ))}
-    <button>Ajouter une coloc</button>
   </div>
 )
 }
