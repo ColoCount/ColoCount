@@ -9,10 +9,12 @@ import Register from './pages/Register/Register';
 import AddColoc from './pages/mesColocs/AddColoc';
 import Home from './pages/Home/Home';
 import Coloc from "./components/coloc/Coloc"
+import NameColoc from './pages/NameColoc/NameColoc';
 
 function App() {
   return (
     <div className="App">
+      <NameColoc />
       <AddColoc/>
       <Home />
     </div>
