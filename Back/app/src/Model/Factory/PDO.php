@@ -8,19 +8,19 @@ class PDO implements Database
 {
 private string $host;
 private string $dbName;
-private string $userName;
+private string $username;
 private string $password;
 
-public function __construct(string $host = "db", string $dbName = "coloCount", string $userName = "root", string $password = "password")
+public function __construct(string $host = "db", string $dbName = "colo_count", string $username = "root", string $password = "password")
 {
 $this->host = $host;
 $this->dbName = $dbName;
-$this->userName = $userName;
+$this->username = $username;
 $this->password = $password;
 }
 
 public function getMySqlPDO(): \PDO
 {
-return new \PDO("mysql:host=" . $this->host . ";dbname=" . $this->dbName, $this->userName, $this->password);
+return new \PDO("mysql:host=" . $this->host . ";dbname=" . $this->dbName, $this->username, $this->password);
 }
 }

@@ -24,11 +24,11 @@ services:
     restart: always
     #Les variables d'environnement
     environment:
-      MYSQL_DATABASE: ColoCount
+      MYSQL_DATABASE: colo_count
       MYSQL_ROOT_PASSWORD: password
     volumes:
       # Pour lancer un dump automatiquement au montage du conteneur
-      - ./database/coloCount.sql:/docker-entrypoint-initdb.d/coloCount.sql
+      - ./database/colo_count.sql:/docker-entrypoint-initdb.d/colo_count.sql
 
   #Encore un autre service
   phpmyadmin:
