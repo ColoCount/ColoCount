@@ -7,7 +7,6 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const { dispatch } = useContext(AuthContext);
 
-
     const handleLogin = (e) => {
         e.preventDefault();
         login({ username, password }, dispatch);
@@ -30,9 +29,8 @@ const Login = () => {
                         </div>
                     </div>
                     <div className="bloc-btn">
-                        <button type="submit" className="btn btn-primary btn-lg" onClick={handleLogin} >Je me connecte</button>
+                        <button type="submit" onClick={handleLogin} >Je me connecte</button>
                     </div>
-                    {/* <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account?</p><Link to={"/register"}></Link> */}
                 </form>
             </div>
             <p className="para-16 medium text-center">Tu n’as pas encore de compte ? <a className="link" href="#">Je m'inscris</a></p>
