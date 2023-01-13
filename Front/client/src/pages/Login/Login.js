@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { login } from '../../AuthContext/apiCalls';
 import { AuthContext } from '../../AuthContext/AuthContext';
 
@@ -35,7 +36,7 @@ const Login = () => {
                     {/* <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account?</p><Link to={"/register"}></Link> */}
                 </form>
             </div>
-            <p className="para-16 medium text-center">Tu n’as pas encore de compte ? <a className="link" href="#">Je m'inscris</a></p>
+            {/* <p className="para-16 medium text-center">Tu n’as pas encore de compte ? <Link to="/register" className="link" >Je m'inscris</Link></p> */}
         </div>
     </div>
 
