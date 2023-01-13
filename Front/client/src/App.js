@@ -7,11 +7,12 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Home from './pages/Home/Home';
 import Coloc from "./components/coloc/Coloc"
+import NameColoc from './pages/NameColoc/NameColoc';
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <NameColoc />
     </div>
   );
 }
