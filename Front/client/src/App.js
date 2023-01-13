@@ -5,11 +5,13 @@ import './assets/css/box.css';
 import './assets/css/page-login-register.css';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import Home from './pages/Home/Home';
+import Coloc from "./components/coloc/Coloc"
 
 function App() {
   return (
     <div className="App">
-      <Register/>
+      <Home />
     </div>
   );
 }
