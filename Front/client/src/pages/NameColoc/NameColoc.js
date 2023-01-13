@@ -1,6 +1,19 @@
 import React from 'react'
 
 const NameColoc = () => {
+    
+    const options = [
+        {
+          label: "modifier",
+          value: "update",
+        },
+
+        {
+            label: "supprimer",
+            value: "delete",
+          },
+    ];
+
 
     const items = [
         {
@@ -61,6 +74,11 @@ const NameColoc = () => {
                                         <div>{item.name} </div>   
                                              <div>Payé par {item.pseudo} </div>   
                                              <div>{item.price}</div>
+                                             <select>
+            {options.map((option) => (
+              <option value={option.value}>{option.label}</option>
+            ))}
+          </select>
                             
                                         </tr>
                                         )}
