@@ -64,9 +64,8 @@ const Register = () => {
                           </div>
                       </div>
                       <div className="bloc-btn">
-                          <button type="submit" className="btn btn-primary btn-lg" >Je m'inscris</button>
+                          <button type="submit" onClick={handleFinish} >Je m'inscris</button>
                       </div>
-                      {/* <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account?</p><Link to={"/register"}></Link> */}
                   </form>
               </div>
               {/* <p className="para-16 medium text-center">Tu as déjà un compte ? <Link to="/" className="link" >Je me connecte</Link></p> */}
