@@ -89,7 +89,7 @@ class ColocationController
                     echo json_encode([
                         "status" => "error",
                         "message" => "Un problème est survenue",
-                    ]);
+                    ]);  
                     exit;
                 }
             }
@@ -108,7 +108,7 @@ class ColocationController
         $cred = str_replace("Bearer ", "", getallheaders()['Authorization'] ?? getallheaders()['authorization'] ?? "");
         $token = JWTHelper::decodeJWT($cred);
         
-        if($token){
+        // if($token){
             if($_SERVER['REQUEST_METHOD'] == 'GET') {
     
                 $connexionColocation = new ColocationManager(new PDO());
@@ -167,7 +167,7 @@ class ColocationController
                         $next_id = $next_item[0];
                         if ($current_id != $next_id) {
                             if(!empty($ParticipantMultiple)){
-                                $ParticipantMultiple [] = [$participant[$i]];
+                                $ParticipantMultiple [] = ["participant_id"=>$participant[$i][1],"participant_name"=>$participant[$i][2]];
                                 $ParticipantPersCharge [] = $ParticipantMultiple;
                                 $ParticipantMultiple=[];
                                 continue;
@@ -204,7 +204,7 @@ class ColocationController
                         $userInfo = [
                             'user_id'=>$infoColoc[$i][1]->getUser_Id(),
                             'user_username'=>$infoColoc[$i][1]->getUsername(),
-                            // 'user_amount'=>$infoColoc[0][2]->getAmount(),
+                            'user_amount'=>$infoColoc[$i][2]->getAmount(),
                             'user_role'=>$infoColoc[$i][2]->getRole(),
                         ];
                         $userAll[] = $userInfo;
@@ -268,6 +268,8 @@ class ColocationController
                         // }
     
                 };
+
+                
                 // echo "<pre>";
                 // var_dump($infoColoc);
                 // var_dump($infoColoc[0][3]);
@@ -297,6 +299,134 @@ class ColocationController
                     }
                 }
                 
+                $user_max_amount = 0;
+                $user_min_amount = 0;
+                // foreach($userAll as $key => $user){
+                        
+                //     if($user["user_amount"] < $user_min_amount){
+                //         $user_min_amount = $user["user_amount"];
+                //         $user_min = $user;
+                //         $user_min_key = $key;
+                //     }
+                //     if($user["user_amount"] > $user_max_amount){
+                //         $user_max_amount = $user["user_amount"];
+                //         $user_max = $user;
+                //         $user_max_key = $key;
+                //     }
+                // }
+
+                $finish = false;
+                $i = 0;
+                while(!$finish){
+                    // if($i > 0){                    
+                        // var_dump($userArray);
+                        foreach($userAll as $key => $user){
+                            // echo "boucle";
+                            // echo "<br>";
+                            // echo "key : ". $key;
+                            // echo "montant" .$user['user_amount'];
+                            // echo "<br>";
+                            // echo "min: " .$user_min_amount;
+                            // echo "max: " .$user_max_amount;
+                            // echo "<br>";
+                            if($user["user_amount"] < $user_min_amount){
+                               
+                                // echo"tt";
+                                $user_min_amount = $user["user_amount"];
+                                $user_min = $user;
+                                $user_min_key = $key;
+                            }
+                            if($user["user_amount"] > $user_max_amount){
+                                // echo"toto";
+                                // echo "<br>";
+                                $user_max_amount = $user["user_amount"];
+                                $user_max = $user;
+                                $user_max_key = $key;
+                            }
+                            
+                        }
+                        // echo"machine";
+                        // echo $user_min_amount;
+                        // echo $user_max_amount;
+                        // echo "est";
+                        // echo "<pre>";
+                        //     var_dump($userAll);
+                        // echo "</pre>";
+                        
+                    // }
+
+                    
+                    
+                    // echo $user_min_amount;
+                    // echo $user_max_amount;
+
+                    // echo $user_min_amount;
+                    // echo "\n";
+                    // echo $user_max_amount;
+                    // echo "<br>";
+                    // echo "<br>";
+                
+                    
+                    if(($user_max_amount == 0 && $user_min_amount == 0)){
+                        $finish = true;
+                        break;
+                    };
+                    // die;
+
+                    // die;
+                    if(abs($user_min_amount) == $user_max_amount){
+                        // echo "egale";
+                        // echo $user_min_amount;
+                        // echo $user_max_amount;
+
+                        $userAll[$user_min_key]['user_amount'] = 0;
+                        $userAll[$user_max_key]['user_amount'] = 0;
+                        // echo"test";
+                        $Transaction [] = [ $user_min['user_username'],$user_max_amount,$user_max['user_username']];
+                        
+                    }elseif(abs($user_min_amount) > $user_max_amount){
+                        $total = $user_min_amount + $user_max_amount;
+                        
+                        
+                        $userAll[$user_min_key]['user_amount'] = $total;
+                        
+                        
+                        $userAll[$user_max_key]['user_amount'] = 0;
+                        $Transaction [] = [ $user_min['user_username'],$user_max_amount,$user_max['user_username']];
+                        
+                    }elseif(abs($user_min_amount) < $user_max_amount){
+                        
+                        $total = $user_max_amount + $user_min_amount;
+                        // $user_min['user_amount'] = 0 ;
+                        // $user_max['user_amount'] = $total;
+                        // echo $userAll[$user_min_key['user_amount']];
+                        
+                        
+                        
+                        $userAll[$user_min_key]["user_amount"] = 0;
+                        $userAll[$user_max_key]['user_amount']= $total;
+                        // var_dump($user_min);
+                        $Transaction []=[ $user_min['user_username'],abs($user_min_amount),$user_max['user_username']];
+                    }
+
+                    $user_max_amount = 0;
+                    $user_min_amount = 0;
+                    
+                    
+                }
+
+                // echo"<pre>";
+                //     var_dump($Transaction);
+                //     // $userArray = $user
+                //         // var_dump($userAll);
+                //         // var_dump($user_min);
+                //         // var_dump($user_max);
+                // echo "</pre>";
+                    // if($userAll){
+                    // }
+
+                // die;
+                
                 // die;
                 // for($i) ($infoColoc as $coloc){
                 //     $colocsArray = [
@@ -317,7 +447,7 @@ class ColocationController
                             ],
                             "user_info"=>$userAll,
                             "charge_info"=>$chargeAll,
-                            
+                            "equilibre_info"=>$Transaction,
                             // $charge = [
                             //     'charge_id'=>$infoColoc[0][3]->getCharge_Id(),
                             //     'charge_name'=>$infoColoc[0][3]->getName(),
@@ -337,12 +467,12 @@ class ColocationController
                 // echo "</pre>";
     
             }
-        }else{
-            json_encode([
-                "status"=>"error",
-                "message"=>"une erreur est survenue"
-            ]);
-        }
+        // }else{
+        //     json_encode([
+        //         "status"=>"error",
+        //         "message"=>"une erreur est survenue"
+        //     ]);
+        // }
     }
 
 }
