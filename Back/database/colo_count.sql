@@ -18,6 +18,8 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`,`created_at`,`up
     (2, 'Romain', 'Romain@gmail.com', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJyb21haW4iLCJleHAiOjE2NzM1MTMyODJ9.ChfOhQ7Q1XSzPlURQX53j_qCBj19Byqr-qrMLSmUNL8','2023-01-12 09:15:24', '2023-01-12 09:15:24');
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`,`created_at`,`updated_at`) VALUES
     (3, 'Herby', 'herby@gmail.com', 'herby','2023-01-12 09:15:24', '2023-01-12 09:15:24');
+INSERT INTO `users` (`user_id`, `username`, `email`, `password`,`created_at`,`updated_at`) VALUES
+    (4, 'Tete', 'tete@gmail.com', 'tete','2023-01-12 09:15:24', '2023-01-12 09:15:24');
 
 
 
@@ -55,13 +57,15 @@ CREATE TABLE IF NOT EXISTS `colocation_user` (
 
 /* Insertion d'un colocation_user du compte Admin dans la table `colocation_user` */
 INSERT INTO `colocation_user` (`user_id`,`colocation_id`, `amount`, `role`) VALUES
-    (1,1,85,'admin');
+    (1,1,90,'admin');
 INSERT INTO `colocation_user` (`user_id`,`colocation_id`, `amount`, `role`) VALUES
     (1,2,0,'admin');
 INSERT INTO `colocation_user` (`user_id`,`colocation_id`, `amount`, `role`) VALUES
-    (2,1,-85,'user');
+    (2,1,-304,'user');
 INSERT INTO `colocation_user` (`user_id`,`colocation_id`, `amount`, `role`) VALUES
-    (3,1,-15,'user');
+    (3,1,458,'user');
+INSERT INTO `colocation_user` (`user_id`,`colocation_id`, `amount`, `role`) VALUES
+    (4,1,-244,'user');
 
 
 /* Création de la table `charges` */
@@ -86,6 +90,8 @@ INSERT INTO `charge` (`charge_id`,`name`,`charge_amount`,`type`,`category`,`crea
     (3,"Autre",30,'depense','loyer','2023-01-14 10:12:24','2023-01-14 10:12:24');
 INSERT INTO `charge` (`charge_id`,`name`,`charge_amount`,`type`,`category`,`created_at`,`updated_at`) VALUES
     (4,"Autre2",40,'depense','course','2023-01-14 10:12:24','2023-01-14 10:12:24');
+INSERT INTO `charge` (`charge_id`,`name`,`charge_amount`,`type`,`category`,`created_at`,`updated_at`) VALUES
+    (5,"Autre3",832,'depense','toto','2023-01-14 10:12:24','2023-01-14 10:12:24');
 
 
 /* Création de la table `charge_user` */
@@ -120,5 +126,15 @@ INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`
     (2,'Romain',4,'paymaster_participant');
 INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
     (3,'Herby',4,'participant');
+
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
+    (2,'Romain',5,'participant');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
+    (3,'Herby',5,'paymaster');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
+    (4,'Tete',5,'participant');
+
+
+
 
 
