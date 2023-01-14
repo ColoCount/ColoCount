@@ -19,9 +19,18 @@
 }
 
 .modale .box-model{
-    height: 70%;
+    height: auto;
+    overflow: hidden;
+    padding: 0;
+}
+.modale .box-model .box-model-scroll{
     overflow-y: scroll;
     position: relative;
+    scrollbar-color: #2F0029 #F7F7F7;
+    scrollbar-width: thin;
+    padding: 40px 70px 50px;
+    height: 70vh;
+    width: auto;
 }
 
 
@@ -30,7 +39,7 @@
 }
 
 .modale .cross-modale{
-    background-image: url("../images/icons/cross-modale.svg");
+    background-image: url("../../images/icons/cross-modale.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -39,6 +48,7 @@
     position: absolute;
     right: 20px;
     top: 20px;
+    cursor: pointer;
 }
 
 
@@ -46,11 +56,21 @@
     .box-model{
         padding: 20px 25px 30px;
     }
+    .modale .box-model{
+        width: 70%;
+    }
 }
 
 @media screen and (max-width: 768px) {
     .box-model{
         padding: 20px 25px 30px;
         border-radius: 15px;
+    }
+    .modale .box-model{
+        width: 90%;
+    }
+    .modale .box-model .box-model-scroll{
+        width: auto;
+        padding: 30px;
     }
 }

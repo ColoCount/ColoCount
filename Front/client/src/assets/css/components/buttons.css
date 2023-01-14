@@ -2,15 +2,18 @@ a{
     text-decoration: none;
 }
 
-a.link{
+a.link,
+button.link{
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 1em;
     color: #2F0029;
     position: relative;
+    padding: 0;
 }
-a.link::after{
+a.link::after,
+button.link::after{
     content: "";
     position: absolute;
     bottom: -6px;
@@ -63,7 +66,7 @@ a.button, button{
     display: flex;
     width: 15px;
     height: 15px;
-    background-image: url("../images/icons/icon-plus-rounded.svg");
+    background-image: url("../../images/icons/icon-plus-rounded.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

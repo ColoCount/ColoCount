@@ -1,11 +1,12 @@
 import './assets/css/reset.css';
 import './assets/css/texts.css';
-import './assets/css/buttons.css';
-import './assets/css/box.css';
-import './assets/css/page-home.css';
-import './assets/css/page-depenses.css';
-import './assets/css/page-login-register.css';
-import './assets/css/mes-colocs-modale.css';
+import './assets/css/components/buttons.css';
+import './assets/css/components/box.css';
+import './assets/css/components/photo-profile.css';
+import './assets/css/pages/page-home.css';
+import './assets/css/pages/page-depenses.css';
+import './assets/css/pages/page-login-register.css';
+import './assets/css/modales/modale-mes-colocs.css';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import AddColoc from './pages/mesColocs/AddColoc';
@@ -17,6 +18,7 @@ import NavBar from './components/navBar/NavBar';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBarToggle from "./components/navBar/NavBarToggle";
+import MonProfil from "./modales/modalMonProfil";
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function App() {
               <Route path='/AddColoc' element={<AddColoc />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
+              <Route path='/MonProfil' element={<MonProfil />} />
           </Routes>
       </BrowserRouter>
 

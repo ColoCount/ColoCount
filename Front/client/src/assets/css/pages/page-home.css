@@ -60,7 +60,7 @@
 }
 
 .page-home .btn-add-coloc button::after{
-    background-image: url("../images/icons/icon-plus-rounded.svg");
+    background-image: url("../../images/icons/icon-plus-rounded.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

@@ -22,10 +22,10 @@ const Login = () => {
                 <h1 className="text-center">Se connecter</h1>
                 <form>
                     <div className="fields-column">
-                        <div className="fields-row mb-4">
+                        <div className="fields-row">
                             <input id="form3Example3" className="form-control form-control-lg" placeholder="Adresse email"  type="text"  onChange={(e) => setUsername(e.target.value)} />
                         </div>
-                        <div className="fields-row mb-4">
+                        <div className="fields-row">
                             <input id="form3Example3" className="form-control form-control-lg" placeholder="Mot de passe" type="password"  onChange={(e) => setPassword(e.target.value)}/>
                         </div>
                     </div>

@@ -27,7 +27,7 @@
 
 /*LOGIN*/
 .page-login{
-    background-image: url("../images/shapes/shapes-login.svg");
+    background-image: url("../../images/shapes/shapes-login.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -41,7 +41,7 @@
 
 /*REGISTER*/
 .page-register{
-    background-image: url("../images/shapes/shapes-register.svg");
+    background-image: url("../../images/shapes/shapes-register.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
