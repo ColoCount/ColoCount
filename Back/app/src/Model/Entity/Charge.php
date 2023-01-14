@@ -6,9 +6,9 @@ use App\Base\BaseEntity;
 
 final class Charge extends BaseEntity
 {
-    private int $id;
+    private int $charge_id;
     private string $name;
-    private float $amount;
+    private float $charge_amount;
     private string $type;
     private ?string $category;
     private string $created_at;
@@ -18,18 +18,18 @@ final class Charge extends BaseEntity
     /**
      * @return int
      */
-    public function getId(): int
+    public function getCharge_Id(): int
     {
-        return $this->id;
+        return $this->charge_id;
     }
 
     /**
      * @param int $id
      * @return Charge
      */
-    public function setId(int $id): Charge
+    public function setCharge_Id(int $charge_id): Charge
     {
-        $this->id = $id;
+        $this->charge_id = $charge_id;
         return $this;
     }
 
@@ -54,18 +54,18 @@ final class Charge extends BaseEntity
     /**
      * @return float
      */
-    public function getAmount(): float
+    public function getCharge_Amount(): float
     {
-        return $this->amount;
+        return $this->charge_amount;
     }
 
     /**
      * @param float $amount
      * @return Charge
      */
-    public function setAmount(float $amount): Charge
+    public function setCharge_Amount(float $charge_amount): Charge
     {
-        $this->amount = $amount;
+        $this->charge_amount = $charge_amount;
         return $this;
     }
 

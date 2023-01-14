@@ -11,7 +11,7 @@ class UserManager extends BaseManager
     public function login($username,$password):?User
     {
         
-        $sql = "select `id`,`username`,`email`,`password` from `users` where `username` = :username";
+        $sql = "select `user_id`,`username`,`email`,`password` from `users` where `username` = :username";
         
         $query = $this->pdo->prepare($sql);
         $query->bindValue(':username', $username,\PDO::PARAM_STR);
@@ -50,7 +50,7 @@ class UserManager extends BaseManager
 
     public function getUserById($id):?User
     {
-        $sql = "select `id`,`email`,`username` from `users` where `id` = :id";
+        $sql = "select `user_id`,`email`,`username` from `users` where `user_id` = :id";
 
         $query = $this->pdo->prepare($sql);
         $query->bindValue(':id', $id, \PDO::PARAM_STR);

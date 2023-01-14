@@ -28,7 +28,7 @@ class UserController
                         
                         echo json_encode([
                             'status' => 'success',
-                            "id" => $user->getId(),
+                            "id" => $user->getUser_Id(),
                             'username' => $user->getUsername(),
                             'token' => $jwt
                         ]);
@@ -82,7 +82,7 @@ class UserController
 
                         echo json_encode([
                             'status' => 'success',
-                            "id" => $user->getId(),
+                            "id" => $user->getUser_Id(),
                             'username' => $user->getUsername(),
                             'token' => $jwt
                         ]);
@@ -113,8 +113,8 @@ class UserController
         if($users){
             foreach ($users as $user) {
                 $userInfo = [
-                    "id" => $user->getId(),
-                    "username" => $user->getUserName(),
+                    "id" => $user->getUser_Id(),
+                    "username" => $user->getUsername(),
                     "email" => $user->getEmail(),
                 ];
     
