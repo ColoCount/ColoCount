@@ -64,7 +64,7 @@ const Register = () => {
                           </div>
                       </div>
                       <div className="bloc-btn">
-                          <button type="submit" onClick={handleFinish} >Je m'inscris</button>
+                          <button type="submit">Je m'inscris</button>
                       </div>
                   </form>
               </div>
