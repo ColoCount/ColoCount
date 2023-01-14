@@ -89,7 +89,7 @@ class ColocationController
                     echo json_encode([
                         "status" => "error",
                         "message" => "Un problème est survenue",
-                    ])     
+                    ]);
                     exit;
                 }
             }
