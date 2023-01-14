@@ -8,7 +8,6 @@ body{
 .vh-100{
     height: auto;
     min-height: 100vh;
-    padding: 30px;
 }
 
 .flex-center{
@@ -39,21 +38,16 @@ input, textarea{
 
 
 @media screen and (max-width: 1024px){
-    .vh-100{
-        padding: 30px;
-    }
+
 }
 
 @media screen and (max-width: 768px){
-    .vh-100{
-        padding: 10px;
-    }
     .fields-row{
         flex-direction: column;
     }
     input{
         border-radius: 15px;
         padding: 15px 20px;
-        width: 80%;
+        width: auto;
     }
 }

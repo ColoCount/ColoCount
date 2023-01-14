@@ -36,6 +36,7 @@
 .login-container{
     width: 50%;
     max-width: 900px;
+    padding: 30px 0;
 }
 
 /*REGISTER*/
@@ -49,6 +50,7 @@
 .register-container{
     width: 70%;
     max-width: 1100px;
+    padding: 30px 0;
 }
 
 
@@ -56,6 +58,7 @@
     .register-container,
     .login-container{
         width: 90%;
+        padding: 10px 0;
     }
 }
 

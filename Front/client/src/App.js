@@ -22,7 +22,7 @@ function App() {
   return (
       <BrowserRouter>
           <div className="App">
-                <NavBarToggle />
+                <NavBar />
           </div>
           <Routes>
               <Route path='/' element={<Home />} />
@@ -30,9 +30,10 @@ function App() {
               <Route path='/NameColoc' element={<NameColoc />} />
               <Route path='/AddColoc' element={<AddColoc />} />
               <Route path='/login' element={<Login />} />
-
+              <Route path='/register' element={<Register />} />
           </Routes>
       </BrowserRouter>
+
   );
 }
 

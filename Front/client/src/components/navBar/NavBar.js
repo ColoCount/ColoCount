@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import './NavBar.css';
+import '../../assets/css/navbar.css';
 import {Link} from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 
@@ -22,21 +22,17 @@ export default function NavBar() {
     }else{
 
     return (
-
-        <header className="header">
-            <a className="logo"><Link to="/Home">coloCount</Link></a>
+        <header className="navbar">
+            <div className="logo">
+                <Link to="/Home">coloCount</Link>
+            </div>
             <ul className="menu">
                 {isHome ?
                     "":<li><Link to="/Login">Mes Colocs</Link></li>
                 }
                 <li><Link to="/Login">Mon Compte</Link></li>
-
             </ul>
-            <pre>
-
-    </pre>
         </header>
     )
-    //}
     }
 }

@@ -127,10 +127,12 @@ const NameColoc = () => {
 
 
 return (
+
     <div className="vh-100 page page-depenses">
+        <NavBarToggle />
         <div className="depenses-container">
             <h1 className="">Nom Coloc</h1>
-            <div className="bloc-btn btn-add-depense">
+            <div className="bloc-btn btn-icon btn-add-depense">
                 <button>Ajouter une dépense</button>
             </div>
             <div className="depenses-list">
@@ -160,6 +162,7 @@ return (
 }
 
 import React from 'react'
+import NavBarToggle from "../../components/navBar/NavBarToggle";
 
 export default NameColoc
 
