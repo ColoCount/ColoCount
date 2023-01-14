@@ -60,7 +60,6 @@ class ColocationController
 
         $cred = str_replace("Bearer ", "", getallheaders()['Authorization'] ?? getallheaders()['authorization'] ?? "");
         $token = JWTHelper::decodeJWT($cred);
-        
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             if (!empty($_POST)) {
@@ -90,8 +89,7 @@ class ColocationController
                     echo json_encode([
                         "status" => "error",
                         "message" => "Un problème est survenue",
-                    ]);
-                    
+                    ])     
                     exit;
                 }
             }

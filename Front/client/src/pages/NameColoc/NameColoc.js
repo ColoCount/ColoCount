@@ -1,68 +1,66 @@
+import React from "react";
 import iconOption from "../../assets/images/icons/icon-option-depenses.svg";
-
+import NavBarToggle from "../../components/navBar/NavBarToggle";
 const NameColoc = () => {
+  const options = [
+    {
+      label: "modifier",
+      value: "update",
+    },
 
-    const options = [
-        {
-            label: "Modifier",
-            value: "update",
-        },
+    {
+      label: "supprimer",
+      value: "delete",
+    },
+  ];
 
-        {
-            label: "Supprimer",
-            value: "delete",
-        },
-    ];
-
-
-    const items = [
-        {
-            "id": 1,
-            "name": "titre depense",
-            "pseudo": "bread",
-            "price": "5"
-        },
-        {
-            "id": 2,
-            "name": "titre depense",
-            "pseudo": "bread",
-            "price": "102"
-        },
-        {
-            "id": 3,
-            "name": "titre depense",
-            "pseudo": "bread",
-            "price": "137"
-        },
-        {
-            "id": 4,
-            "name": "titre depense",
-            "pseudo": "bread",
-            "price": "12"
-        },
-        {
-            "id": 5,
-            "name": "titre depense",
-            "pseudo": "bread",
-            "price": "102"
-        },
-        {
-            "id": 6,
-            "name": "titre depense",
-            "pseudo": "bread",
-            "price": "102"
-        },
-        {
-            "id": 7,
-            "name": "titre depense",
-            "pseudo": "bread",
-            "price": "1042"
-        }
-    ];
-
-
-
-    /*var btnOption = document.getElementsByClassName("image-option");
+  const items = [
+    {
+      id: 1,
+      name: "titre depense",
+      pseudo: "bread",
+      price: "102$",
+    },
+    {
+      id: 1,
+      name: "titre depense",
+      pseudo: "bread",
+      price: "102$",
+    },
+    {
+      id: 1,
+      name: "titre depense",
+      pseudo: "bread",
+      price: "102$",
+    },
+    {
+      id: 1,
+      name: "titre depense",
+      pseudo: "bread",
+      price: "102$",
+    },
+    {
+      id: 1,
+      name: "titre depense",
+      pseudo: "bread",
+      price: "102$",
+    },
+    {
+      id: 1,
+      name: "titre depense",
+      pseudo: "bread",
+      price: "102$",
+    },
+    {
+      id: 1,
+      name: "titre depense",
+      pseudo: "bread",
+      price: "102$",
+    },
+  ];
+  
+  
+   /*var btnOption = document.getElementsByClassName("image-option");
     var modaleOption = document.getElementsByClassName("option-box");
     for (var i = 0; i < btnOption.length; i++) {
         btnOption[i].addEventListener('click', function () {
@@ -124,8 +122,6 @@ const NameColoc = () => {
             modaleOption.classList.remove("active");
         }
     });*/
-
-
 return (
 
     <div className="vh-100 page page-depenses">
@@ -159,11 +155,6 @@ return (
         </div>
     </div>
 )
-}
-
-import React from 'react'
-import NavBarToggle from "../../components/navBar/NavBarToggle";
-
-export default NameColoc
-
+};
 {/*onClick={() => handleOption(item.id)}*/}
+export default NameColoc;
