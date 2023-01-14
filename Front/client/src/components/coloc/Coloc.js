@@ -36,7 +36,7 @@ return (
                       <div className="infos-box">
                           <p className="para-15 bold">Créé le: {colocation.created_at}</p>
                           <div className="icon-arrow box-shadow-1">
-                              <img src={iconArrow} alt=""/>
+                              <img src={iconArrow}/>
                           </div>
                       </div>
                   </div>
