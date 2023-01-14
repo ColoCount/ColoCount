@@ -51,6 +51,21 @@ a.button, button{
 }
 
 
+.btn-icon > a,
+.btn-icon > button{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.btn-icon > a::after,
+.btn-icon > button::after{
+    content: "";
+    display: flex;
+    width: 15px;
+    height: 15px;
+}
+
+
 @media screen and (max-width: 768px){
     a.button, button{
         font-size: 15px;
