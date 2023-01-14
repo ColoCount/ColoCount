@@ -57,13 +57,13 @@ class ColocationController
     #[Route('/add_coloc', name:'add_coloc', methods:['POST'])]
     public function addColocs(){
 
-        // $cred = str_replace("Bearer ", "", getallheaders()['authorization']);
-        // $token = JWTHelper::decodeJWT($cred);
+        $cred = str_replace("Bearer ", "", getallheaders()['Authorization'] ?? getallheaders()['authorization'] ?? "");
+        $token = JWTHelper::decodeJWT($cred);
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             if (!empty($_POST)) {
-                // if($token){
+                if($token){
                     if (isset($_POST["titre"], $_POST["description"]) && !empty($_POST['titre']) && !empty($_POST['description'])) {
                                     
                         $titre = htmlspecialchars(strip_tags($_POST['titre']));
@@ -82,12 +82,12 @@ class ColocationController
                         ]);
                         exit;
                     }
-                // }else{
-                //     echo json_encode([
-                //         "status" => "error",
-                //         "message" => "Un problème est survenue",
-                //     ]);exit;
-                // }
+                }else{
+                    echo json_encode([
+                        "status" => "error",
+                        "message" => "Un problème est survenue",
+                    ]);exit;
+                }
             }
 
         }

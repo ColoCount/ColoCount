@@ -14,9 +14,12 @@ import NameColoc from './pages/NameColoc/NameColoc';
 function App() {
   return (
     <div className="App">
-      <NameColoc />
-      <AddColoc/>
-      <Home />
+    
+      {/* <NameColoc /> */}
+      {/* <AddColoc/> */}
+      {/* <Home /> */}
+      <Login/>
+      {/* <Register/> */}
     </div>
   );
 }
