@@ -18,7 +18,7 @@ const AddColoc = () => {
         credentials: "include",  
         headers: new Headers({
                 // "Authorization" : "Basic amZnbWFpbC5jb206cGFzc3dvcmQ=",
-                "Content-type":  "application/x-www-form-urlencoded
+                "Content-type":  "application/x-www-form-urlencoded"
             })
     })
 
