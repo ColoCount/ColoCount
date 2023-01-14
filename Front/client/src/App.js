@@ -3,6 +3,7 @@ import './assets/css/texts.css';
 import './assets/css/buttons.css';
 import './assets/css/box.css';
 import './assets/css/page-home.css';
+import './assets/css/page-depenses.css';
 import './assets/css/page-login-register.css';
 import './assets/css/mes-colocs-modale.css';
 import Login from './pages/Login/Login';
@@ -19,7 +20,6 @@ import NavBarToggle from "./components/navBar/NavBarToggle";
 
 function App() {
   return (
-
       <BrowserRouter>
           <div className="App">
                 <NavBarToggle />
@@ -33,7 +33,6 @@ function App() {
 
           </Routes>
       </BrowserRouter>
-
   );
 }
 
