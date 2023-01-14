@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import '../../assets/css/navbar-toggle.css';
+import '../../assets/css/components/navbar-toggle.css';
 import {Link} from "react-router-dom";
 import iconParticipants from "../../assets/images/icons/icon-participants.svg"
 
