@@ -139,12 +139,12 @@ input, textarea{
     .modale h2{font-size: 35px;}
     .modale h3{font-size: 18px;}
     p.para-15{font-size: 15px;}
-    p.para-16{font-size: 16px;}
-    p.para-18{font-size: 18px;}
-    p.para-20{font-size: 20px;}
-    p.para-24{font-size: 24px;}
-    p.para-26{font-size: 26px;}
-    p.para-30{font-size: 30px;}
+    p.para-16{font-size: 14px;}
+    p.para-18{font-size: 16px;}
+    p.para-20{font-size: 16px;}
+    p.para-24{font-size: 18px;}
+    p.para-26{font-size: 20px;}
+    p.para-30{font-size: 22px;}
     p.para-105{font-size: 105px;}
     input{font-size: 16px;}
 }

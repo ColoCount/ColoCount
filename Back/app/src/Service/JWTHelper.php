@@ -12,7 +12,7 @@ class JWTHelper
     {
         
         $payload = [
-            "id" => $user->getId(),
+            "id" => $user->getUser_Id(),
             "username" => $user->getUsername(),
             "exp" => (new \DateTime("+ 20 minutes"))->getTimestamp()
         ];

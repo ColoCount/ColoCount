@@ -6,8 +6,8 @@ use App\Base\BaseEntity;
 
 final class Colocation extends BaseEntity
 {
-    private int $id;
-    private string $name;
+    private int $colocation_id;
+    private string $colocation_name;
     private ?string $description;
     private string $created_at;
     private string $updated_at;
@@ -16,36 +16,36 @@ final class Colocation extends BaseEntity
     /**
      * @return int
      */
-    public function getId(): int
+    public function getColocation_Id(): int
     {
-        return $this->id;
+        return $this->colocation_id;
     }
 
     /**
      * @param int $id
      * @return Colocation
      */
-    public function setId(int $id): Colocation
+    public function setColocation_Id(int $colocation_id): Colocation
     {
-        $this->id = $id;
+        $this->colocation_id = $colocation_id;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getName(): string
+    public function getColocation_Name(): string
     {
-        return $this->name;
+        return $this->colocation_name;
     }
 
     /**
      * @param string $name
      * @return Colocation
      */
-    public function setName(string $name): Colocation
+    public function setColocation_Name(string $colocation_name): Colocation
     {
-        $this->name = $name;
+        $this->colocation_name = $colocation_name;
         return $this;
     }
 

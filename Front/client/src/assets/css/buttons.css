@@ -51,6 +51,25 @@ a.button, button{
 }
 
 
+.btn-icon > a,
+.btn-icon > button{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.btn-icon > a::after,
+.btn-icon > button::after{
+    content: "";
+    display: flex;
+    width: 15px;
+    height: 15px;
+    background-image: url("../images/icons/icon-plus-rounded.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 @media screen and (max-width: 768px){
     a.button, button{
         font-size: 15px;
