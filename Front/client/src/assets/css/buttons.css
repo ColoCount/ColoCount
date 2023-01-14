@@ -63,6 +63,10 @@ a.button, button{
     display: flex;
     width: 15px;
     height: 15px;
+    background-image: url("../images/icons/icon-plus-rounded.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
