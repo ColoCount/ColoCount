@@ -11,12 +11,29 @@ import AddColoc from './pages/mesColocs/AddColoc';
 import Home from './pages/Home/Home';
 import Coloc from "./components/coloc/Coloc"
 import NameColoc from './pages/NameColoc/NameColoc';
+import React from "react";
+import NavBar from './components/navBar/NavBar';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavBarToggle from "./components/navBar/NavBarToggle";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+
+      <BrowserRouter>
+          <div className="App">
+                <NavBarToggle />
+          </div>
+          <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/mesColocs' element={<Coloc />} />
+              <Route path='/NameColoc' element={<NameColoc />} />
+              <Route path='/AddColoc' element={<AddColoc />} />
+              <Route path='/login' element={<Login />} />
+
+          </Routes>
+      </BrowserRouter>
+
   );
 }
 

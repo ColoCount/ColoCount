@@ -8,7 +8,7 @@ const AddColoc = () => {
 
     const handleColoc = (e) => {
         e.preventDefault();
-        login({ nameColoc, description }, dispatch);
+        //login({ nameColoc, description }, dispatch);
     }
 
 
@@ -18,7 +18,7 @@ const AddColoc = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                setPosts(data);
+                //setPosts(data);
             })
             .catch((err) => {
                 console.log(err.message);
