@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
 import NavBarToggle from "../components/navBar/NavBarToggle";
 import ProfilPhoto from "../components/ProfilPhoto";
 import '../assets/css/pages/page-equilibre.css';
