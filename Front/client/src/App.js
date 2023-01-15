@@ -8,6 +8,7 @@ import './assets/css/pages/page-home.css';
 import './assets/css/pages/page-depenses.css';
 import './assets/css/pages/page-login-register.css';
 import './assets/css/modales/modale-mes-colocs.css';
+import './assets/css/modales/modale-add-modify-remboursement-depense.css';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import AddColoc from './pages/mesColocs/AddColoc';
@@ -16,6 +17,7 @@ import NameColoc from './pages/NameColoc/NameColoc';
 import EquilibreDepenses from './pages/EquilibreDepenses';
 import MonProfil from "./modales/modalMonProfil";
 import ModaleDepense from "./modales/modaleDepense";
+import ModaleAddRemboursement from "./modales/modaleAddRemboursement";
 import Coloc from "./components/coloc/Coloc"
 import NavBar from './components/navBar/NavBar';
 import ReactDOM from 'react-dom/client';
@@ -40,6 +42,7 @@ function App() {
               <Route path='/register' element={<Register />} />
               <Route path='/MonProfil' element={<MonProfil />} />
               <Route path='/participants' element={<ModalParticipants />} />
+              <Route path='/ajout-remboursement' element={<ModaleAddRemboursement />} />
           </Routes>
       </BrowserRouter>
   );

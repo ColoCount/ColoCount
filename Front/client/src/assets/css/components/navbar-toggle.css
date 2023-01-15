@@ -25,7 +25,7 @@
     font-size: 22px;
     color: #2F0029;
     font-weight: 600;
-    font-family: 'Satoshi';
+    font-family: Satoshi, sans-serif;
     border-radius: 90px;
     padding: 12px 20px;
 }

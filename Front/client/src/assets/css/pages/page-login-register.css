@@ -25,6 +25,13 @@
     gap: 20px;
 }
 
+.link-reg-log{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
 /*LOGIN*/
 .page-login{
     background-image: url("../../images/shapes/shapes-login.svg");
@@ -37,6 +44,11 @@
     width: 50%;
     max-width: 900px;
     padding: 30px 0;
+}
+
+.page-login input,
+.page-register input {
+    width: 100%;
 }
 
 /*REGISTER*/
@@ -57,9 +69,11 @@
 @media screen and (max-width: 1024px){
     .register-container,
     .login-container{
-        width: 90%;
+        width: 80%;
         padding: 10px 0;
     }
+
+
 }
 
 @media screen and (max-width: 728px){

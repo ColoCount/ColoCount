@@ -16,12 +16,16 @@ body{
     align-items: center;
 }
 
+a{
+    display: block;
+}
+
 h1, h2, h3, h4, h5, h6, p{
     margin: 0;
 }
 
 input, textarea, select{
-    width: 100%;
+    width: auto;
     background: #FFFFFF;
     border: 1px solid #E0E0E0;
     border-radius: 17px;
@@ -31,6 +35,7 @@ input, textarea, select{
 .fields-column{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 .fields-row{
     display: flex;

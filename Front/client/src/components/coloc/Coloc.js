@@ -40,20 +40,16 @@ return (
                       </div>
                       <div className="infos-box">
                           <p className="para-15 bold">Créé le: {colocation.created_at}</p>
-                          <div className="icon-arrow box-shadow-1">
-                          <Link to={`/NameColoc/${colocation.id}`}>
-                          <img src={iconArrow}/>
+                          <Link className="icon-arrow box-shadow-1" to={`/NameColoc/${colocation.id}`}>
+                            <img src={iconArrow}/>
                           </Link>
-                          </div>
                       </div>
                   </div>
               ))}
           </div>
-          <div className="bloc-btn btn-icon btn-add-coloc">
-          <Link to="/AddColoc">
-          <button type="submit" >Ajouter une coloc</button>
+          <Link to="/AddColoc" className="bloc-btn btn-icon btn-add-coloc">
+            <button type="submit" >Ajouter une coloc</button>
           </Link>
-          </div>
       </div>
   </div>
 )
