@@ -6,36 +6,29 @@ import { AuthContext } from '../../AuthContext/AuthContext';
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState(null);
+  const [error, setError] = useState(null);
+  const {logout, login, isAuthenticated } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch("http://localhost:1501/login", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      credentials: 'include',
-      body: `username=${username}&password=${password}`
-    });
-    const data = await response.json();
-    if(data.token){
-        setToken(data.token);
-        localStorage.setItem("token", data.token);
-        setUsername("");
-        setPassword("");
+    try {
+      await login(username, password);
+      navigate('/');
+    } catch (err) {
+      setError(err.message);
     }
   };
 
   const handleLogout = () => {
-    setToken(null);
-    localStorage.removeItem("token");
-  };
+    logout();
+  }
+
 
   return (
     
     <div className='vh-100 page page-login page-log-reg flex-center'>
-     {token ? (
+     {isAuthenticated ? (
         <>
           <p>You are logged in.</p>
           <button onClick={handleLogout}>Logout</button>
@@ -59,7 +52,7 @@ const Login = () => {
                         </div>
                     </div>
                     <div className="bloc-btn">
-                    {/* {err && err} */}
+                    {error && <p className="error">{error}</p>}
                         <button type="submit" >Je me connecte</button>
                     </div>
                 </form>

@@ -10,6 +10,6 @@ export default function NeedAuth(props) {
     if (sessionStorage.token) {
         return props.children
     } else {
-        return <Navigate to={"/register"}/>
+        return <Navigate to={"/login"}/>
     }
 }
