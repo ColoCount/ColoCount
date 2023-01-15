@@ -12,10 +12,11 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import AddColoc from './pages/mesColocs/AddColoc';
 import Home from './pages/Home/Home';
-import Coloc from "./components/coloc/Coloc"
 import NameColoc from './pages/NameColoc/NameColoc';
-import NavBar from './components/navBar/NavBar';
+import EquilibreDepenses from './pages/EquilibreDepenses';
 import MonProfil from "./modales/modalMonProfil";
+import Coloc from "./components/coloc/Coloc"
+import NavBar from './components/navBar/NavBar';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBarToggle from "./components/navBar/NavBarToggle";
@@ -30,6 +31,7 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/mesColocs' element={<Coloc />} />
               <Route path='/NameColoc' element={<NameColoc />} />
+              <Route path='/EquilibreDepenses' element={<EquilibreDepenses />} />
               <Route path='/AddColoc' element={<AddColoc />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />

@@ -7,16 +7,16 @@ const Coloc = () => {
   const [loading, setLoading] = useState(true);
 
 useEffect(() => {
-  setLoading(true);
-  fetch('http://localhost:1501/mes_colocs')
-    .then(response => response.json())
-    .then(data =>{setColocations (data[0])
-      console.log(data.data)
-    })
+    setLoading(true);
+    fetch('http://localhost:1501/mes_colocs')
+        .then(response => response.json())
+        .then(data =>{setColocations (data[0])
+            console.log(data.data)
+        })
 
-    .catch(error => console.log(error))
-    .finally(() => setLoading(false));
-    
+        .catch(error => console.log(error))
+        .finally(() => setLoading(false));
+
 }, []);
 
 if (loading) {
@@ -36,7 +36,7 @@ return (
                       <div className="infos-box">
                           <p className="para-15 bold">Créé le: {colocation.created_at}</p>
                           <div className="icon-arrow box-shadow-1">
-                              <img src={iconArrow}/>
+                              {/*<img src={iconArrow}/>*/}
                           </div>
                       </div>
                   </div>
