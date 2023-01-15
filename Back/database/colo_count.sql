@@ -7,7 +7,6 @@ CREATE TABLE IF NOT EXISTS `users`(
     `password` varchar(255) NOT NULL,
     `created_at`  datetime DEFAULT NULL,
     `updated_at`  datetime DEFAULT NULL,
-    `deleted_at`  datetime DEFAULT NULL,
     PRIMARY KEY (`user_id`)
     );
 
@@ -31,7 +30,6 @@ CREATE TABLE IF NOT EXISTS `colocation` (
     `description` varchar(255),
     `created_at`  datetime DEFAULT NULL,
     `updated_at`  datetime DEFAULT NULL,
-    `deleted_at`  datetime DEFAULT NULL,
     PRIMARY KEY (`colocation_id`)
 );
 
@@ -80,7 +78,6 @@ CREATE TABLE IF NOT EXISTS `charge` (
     `category`      varchar(20) NOT NULL,
     `created_at`    datetime,
     `updated_at`    datetime,
-    `deleted_at`    datetime,
     PRIMARY KEY(`charge_id`)
 );
 
@@ -103,40 +100,42 @@ CREATE TABLE IF NOT EXISTS `charge_user` (
     `user_id` integer(11) NOT NULL,
     `charge_username` varchar (30) NOT NULL,
     `charge_id` integer(11) NOT NULL,
+    `colocation_id` integer(11) NOT NULL,
     `role_charge` ENUM('paymaster','participant','paymaster_participant') DEFAULT 'paymaster',
     PRIMARY KEY (`id`),
     FOREIGN KEY(`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE,
+    FOREIGN KEY(`colocation_id`) REFERENCES `colocation`(`colocation_id`) ON DELETE CASCADE,
     FOREIGN KEY(`charge_id`) REFERENCES `charge`(`charge_id`) ON DELETE CASCADE
 );
 
-INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
-    (1,'Admin',1,'paymaster_participant');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`colocation_id`,`role_charge`) VALUES
+    (1,'Admin',1,1,'paymaster_participant');
 
-INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
-    (2,'Romain',1,'participant');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`colocation_id`,`role_charge`) VALUES
+    (2,'Romain',1,1,'participant');
 
-INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
-    (1,'Admin',2,'paymaster_participant');
-INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
-    (2,'Romain',2,'participant');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`colocation_id`,`role_charge`) VALUES
+    (1,'Admin',2,1,'paymaster_participant');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`colocation_id`,`role_charge`) VALUES
+    (2,'Romain',2,1,'participant');
 
-INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
-    (1,'Admin',3,'participant');
-INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
-    (2,'Romain',3,'paymaster_participant');
-INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
-    (3,'Herby',3,'participant');
-INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
-    (2,'Romain',4,'paymaster_participant');
-INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
-    (3,'Herby',4,'participant');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`colocation_id`,`role_charge`) VALUES
+    (1,'Admin',3,1,'participant');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`colocation_id`,`role_charge`) VALUES
+    (2,'Romain',3,1,'paymaster_participant');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`colocation_id`,`role_charge`) VALUES
+    (3,'Herby',3,1,'participant');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`colocation_id`,`role_charge`) VALUES
+    (2,'Romain',4,1,'paymaster_participant');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`colocation_id`,`role_charge`) VALUES
+    (3,'Herby',4,1,'participant');
 
-INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
-    (2,'Romain',5,'participant');
-INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
-    (3,'Herby',5,'paymaster');
-INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`role_charge`) VALUES
-    (4,'Tete',5,'participant');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`colocation_id`,`role_charge`) VALUES
+    (2,'Romain',5,1,'participant');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`colocation_id`,`role_charge`) VALUES
+    (3,'Herby',5,1,'paymaster');
+INSERT INTO `charge_user` (`user_id`,`charge_username`,`charge_id`,`colocation_id`,`role_charge`) VALUES
+    (4,'Tete',5,1,'participant');
 
 
 

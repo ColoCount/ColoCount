@@ -114,7 +114,42 @@ class ColocationController
                 $connexionColocation = new ColocationManager(new PDO());
                 $infoColoc = $connexionColocation->getOneColocs($id);
                 $userAll =[];
-                
+
+                if(count($infoColoc)==0){
+                    $connexionColocation = new ColocationManager(new PDO());
+                    $infoColoc = $connexionColocation->getAllUser($id);
+                    if(count($infoColoc) == 0){
+                        echo json_encode([
+                            "status"=>"error",
+                            "message"=>"aucune info",
+                        ]);
+                        exit;
+                    }
+                    for ($i = 0; $i < count($infoColoc); $i++) {
+                        $userInfo = [
+                            'user_id'=>$infoColoc[$i][1]->getUser_Id(),
+                            'user_username'=>$infoColoc[$i][1]->getUsername(),
+                            'user_amount'=>$infoColoc[$i][2]->getAmount(),
+                            'user_role'=>$infoColoc[$i][2]->getRole(),
+                        ];
+                        $userAll[] = $userInfo;
+                    };
+                    $allInfoColoc=[
+                        "colocation_info"=>$colocationInfo = [
+                            'colocation_id'=>$infoColoc[0][0]->getColocation_ID(),
+                            'colocation_name'=>$infoColoc[0][0]->getColocation_Name(),
+                            'colocation_description'=>$infoColoc[0][0]->getDescription(),
+                        ],
+                        "user_info"=>$userAll,
+                    ];
+                    echo json_encode([
+                        "status"=>"sucess",
+                        "InfoColoc"=>$allInfoColoc,
+                        "depense"=>false,
+                    ]);
+                    exit;
+                }
+
                 for ($j = 0; $j < count($infoColoc); $j++) {
                     if ($infoColoc[$j][4]->getRole_Charge() == 'paymaster' || $infoColoc[$j][4]->getRole_Charge() == 'paymaster_participant'){
                         $paymaster_id = $infoColoc[$j][4]->getUser_Id();
@@ -192,7 +227,7 @@ class ColocationController
     
                     }
                 }
-               
+                
                 for ($i=0; $i < count($chargeArray); $i++) { 
                     $chargeAll [] = [$chargeArray[$i],$paymasterArray[$i],$ParticipantPersCharge[$i]];
                 }
