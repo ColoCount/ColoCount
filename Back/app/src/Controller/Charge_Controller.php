@@ -8,49 +8,51 @@ use App\Model\Route\Route;
 
 class Charge_Controller
 {
-    // #[Route('/mes_colocs/{id}/add_charge', name: "mesColocs.addCharge", methods: ["POST"])]
-    // public function addCharge(){
-    //     if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    #[Route('/mes_colocs/{id}/add_charge', name: "mesColocs.addCharge", methods: ["POST"])]
+    public function addCharge(){
 
-    //         $connexionColocation = new ChargeManager(new PDO());
-    //         $colocs = $connexionColocation->getAllMyColocs();
+        echo "trd ";die;
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    //         if($colocs){
-    //             $tableauColocs = [];
+            $connexionColocation = new ChargeManager(new PDO());
+            $colocs = $connexionColocation->getAllMyColocs();
+
+            if($colocs){
+                $tableauColocs = [];
     
-    //             foreach ($colocs as $coloc){
-    //                 $colocsArray = [
-    //                     "id"=> $coloc->getId(),
-    //                     "name"=> $coloc->getName(),
-    //                     "description"=>$coloc->getDescription(),
-    //                     "created_at" => $coloc->getCreated_At(),
-    //                 ];
+                foreach ($colocs as $coloc){
+                    $colocsArray = [
+                        "id"=> $coloc->getId(),
+                        "name"=> $coloc->getName(),
+                        "description"=>$coloc->getDescription(),
+                        "created_at" => $coloc->getCreated_At(),
+                    ];
                     
-    //                 $tableauColocs[] = $colocsArray;
-    //             }
+                    $tableauColocs[] = $colocsArray;
+                }
                 
-    //             echo json_encode(
-    //                 [
-    //                     "status" =>"sucess",
-    //                     $tableauColocs,
-    //                     "colocs"=>true,
-    //                 ]);
-    //             exit;
-    //         }
+                echo json_encode(
+                    [
+                        "status" =>"sucess",
+                        $tableauColocs,
+                        "colocs"=>true,
+                    ]);
+                exit;
+            }
 
-    //             echo json_encode([
-    //                 'status' => 'success',
-    //                 'message' => "Vous n'avez aucune colocation",
-    //                 'colocs' =>false,
-    //             ]);
-    //             exit;
-    //     }
-    //     echo json_encode([
-    //         'status' => 'error',
-    //         'message' => "Une erreur est survenue",
-    //     ]);
-    //     exit;
-    // }
+                echo json_encode([
+                    'status' => 'success',
+                    'message' => "Vous n'avez aucune colocation",
+                    'colocs' =>false,
+                ]);
+                exit;
+        }
+        echo json_encode([
+            'status' => 'error',
+            'message' => "Une erreur est survenue",
+        ]);
+        exit;
+    }
 
 
 }
