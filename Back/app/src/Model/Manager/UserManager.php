@@ -50,7 +50,8 @@ class UserManager extends BaseManager
 
     public function getUserById($id):?User
     {
-        $sql = "select `user_id`,`email`,`username` from `users` where `user_id` = :id";
+        
+        $sql = "select `user_id`,`email`,`username`,`password` from `users` where `user_id` = :id";
 
         $query = $this->pdo->prepare($sql);
         $query->bindValue(':id', $id, \PDO::PARAM_STR);
@@ -138,5 +139,44 @@ class UserManager extends BaseManager
         $response = null;
         return $response;
         
+    }
+
+    public function updateUserAll($id,$username,$password){
+        $sql = "UPDATE `users` set `username` =:username, `password`=:password where `user_id` = :id";
+
+        $query = $this->pdo->prepare($sql);
+
+        $query->bindValue(':username', $username, \PDO::PARAM_STR);
+        $query->bindValue(':password', $password, \PDO::PARAM_STR);
+        $query->bindValue(':id', $id, \PDO::PARAM_STR);
+
+        $query->execute();
+
+        return $this->getUserById($id);
+    }
+
+    public function updateUserUsername($id,$username){
+        $sql = "UPDATE `users` set `username` =:username where `user_id` = :id";
+
+        $query = $this->pdo->prepare($sql);
+
+        $query->bindValue(':username', $username, \PDO::PARAM_STR);
+        $query->bindValue(':id', $id, \PDO::PARAM_STR);
+
+        $query->execute();
+
+        return $this->getUserById($id);
+    }
+    public function updateUserPassword($id,$password){
+        $sql = "UPDATE `users` set `password` =:password where `user_id` = :id";
+
+        $query = $this->pdo->prepare($sql);
+
+        $query->bindValue(':password', $password, \PDO::PARAM_STR);
+        $query->bindValue(':id', $id, \PDO::PARAM_STR);
+
+        $query->execute();
+
+        return $this->getUserById($id);
     }
 }
