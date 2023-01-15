@@ -1,14 +1,23 @@
 # ColoCount
 
 Pour lancer le projet faire dans le terminal : 
+<br>
 cd back 
-cd app 
+<br>
+cd app
+<br>
 composer install
-cd .. 
-docker compooser up -d 
-cd .. 
-cd front 
-cd client 
+<br>
+cd ..
+<br>
+docker compooser up -d
+<br>
+cd ..
+<br>
+cd front
+<br>
+cd client
+<br>
 npm run start 
 
 vous avez ensuite les deux serveur qui se lance 
