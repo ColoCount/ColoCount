@@ -21,6 +21,7 @@ import NavBar from './components/navBar/NavBar';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBarToggle from "./components/navBar/NavBarToggle";
+import ModalParticipants from "./modales/modalParticipants";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
               <Route path='/MonProfil' element={<MonProfil />} />
+              <Route path='/modalparticipants' element={<ModalParticipants />} />
           </Routes>
       </BrowserRouter>
   );
