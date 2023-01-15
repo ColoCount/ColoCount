@@ -39,7 +39,7 @@ function App() {
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
               <Route path='/MonProfil' element={<MonProfil />} />
-              <Route path='/modalparticipants' element={<ModalParticipants />} />
+              <Route path='/participants' element={<ModalParticipants />} />
           </Routes>
       </BrowserRouter>
   );

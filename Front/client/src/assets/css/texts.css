@@ -96,7 +96,7 @@ p.para-22{font-size: 22px;}
 p.para-24{font-size: 24px;}
 p.para-26{font-size: 26px;}
 p.para-30{font-size: 30px;}
-p.para-105{font-size: 105px;}
+p.para-105{font-size: 85px;}
 
 p.medium{font-weight: 500;}
 p.bold{font-weight: 600;}
@@ -131,7 +131,7 @@ input, textarea, select{
     p.para-24{font-size: 24px;}
     p.para-26{font-size: 26px;}
     p.para-30{font-size: 30px;}
-    p.para-105{font-size: 105px;}
+    p.para-105{font-size: 70px;}
     input{font-size: 16px;}
 }
 
@@ -148,6 +148,6 @@ input, textarea, select{
     p.para-22{font-size: 18px;}
     p.para-26{font-size: 20px;}
     p.para-30{font-size: 22px;}
-    p.para-105{font-size: 105px;}
+    p.para-105{font-size: 60px;}
     input{font-size: 16px;}
 }

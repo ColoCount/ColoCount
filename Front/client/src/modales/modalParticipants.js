@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import '../assets/css/modales/modale-participants.css';
+import ProfilPhoto from "../components/ProfilPhoto";
 
 
 const ModalParticipants = () => {
@@ -20,16 +21,21 @@ const ModalParticipants = () => {
 
     return (
 
-        <div className='vh-100 modale modale-depense flex-center'>
-            <div className="box-shadow-modale box-model modale-depense-container">
+        <div className='vh-100 modale modale-participants flex-center'>
+            <div className="box-shadow-modale box-model modale-participants-container">
                 <div className="box-model-scroll">
+                    <div className="cross-modale"></div>
                     <h1 className="text-center">Les participants</h1>
-                    <p className="satoshi-bold category-depense para-15">{totalUsers} participants</p>
-                    <div className="depense-bloc">
-                        <div className="depense-participants box-model box-shadow-1">
-                        <ul>{userInfo.map(user => <li key={user.user_id}>{user.user_username}</li>)}
-                        </ul>
+                    <p className="satoshi-bold para-15 nb-participants icon-participant">{totalUsers} participants</p>
+                    <div className="participants-list">{userInfo.map(user =>
+                        <div className='box-model participant-item' key={user.user_id}>
+                            <div className="participant-info">
+                                <ProfilPhoto />
+                                <p className="para-18">{user.user_username}</p>
+                            </div>
+                            <div className="image"></div>
                         </div>
+                    )}
                     </div>
                 </div>
             </div>
