@@ -91,4 +91,50 @@ class UserManager extends BaseManager
 
         return  $response;
     }
+
+    public function removeUser($id,$user_id,$user_remove_id){
+
+        $sql = "SELECT DISTINCT u.*,cu.role,cu.amount FROM users as u INNER JOIN colocation_user as cu ON u.user_id = cu.user_id where (cu.colocation_id = :id AND u.user_id = :user_id) OR (cu.colocation_id =:id AND u.user_id =:user_remove_id) ORDER BY `cu`.`role` ASC";
+        
+        $query = $this->pdo->prepare($sql);
+        $query->bindValue(':id', $id,\PDO::PARAM_STR);
+        $query->bindValue(':user_id', $user_id,\PDO::PARAM_STR);
+        $query->bindValue(':user_remove_id', $user_remove_id,\PDO::PARAM_STR);
+        
+        
+        $query->execute();
+        $admin = null;
+        $user_remove = null;
+
+        
+        
+        while ($data = $query->fetch(\PDO::FETCH_ASSOC)) {
+            if($data['role']=="admin"){
+                $admin = $data;
+            }else{
+                $user_remove = $data;
+            }
+        }
+
+        $user_remove_id = $user_remove['user_id'];
+        if($admin && $user_remove){
+            if($admin["user_id"]==$user_id){
+                if($user_remove["amount"] == 0){
+                    $sql = "DELETE FROM `colocation_user` as cu WHERE cu.user_id $user_remove_id and cu.colocation_id =$id";
+
+                    $query->execute();
+                    $response = 0;
+                    return $response;
+                }
+                $response = 1;
+                return $response;
+            }
+            $response = 2;
+            return $response;
+        }
+
+        $response = null;
+        return $response;
+        
+    }
 }

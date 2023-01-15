@@ -46,7 +46,7 @@ class UserController
         exit;
     }
 
-    #[Route('/register',name:'register', methods: ["POST"])]
+    #[Route('/register',name:'register.register', methods: ["POST"])]
     public function register()
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -101,26 +101,82 @@ class UserController
         exit;
     }
 
+    #[ROUTE('/mes_colocs/{id}/remove_user/{user_id_remove}',name:'remove_user.remove',methods:["GET"])]
+    public function remove($id,$user_id_remove){
+        $cred = str_replace("Bearer ", "", getallheaders()['Authorization'] ?? getallheaders()['authorization'] ?? "");
+        $token = JWTHelper::decodeJWT($cred);
+        
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+            if($token){
+                    $user_id = $token->id;
+                    $connectioPDO = new UserManager(new PDO());
+                    $response = $connectioPDO->removeUser($id,$user_id,$user_id_remove);
+                    
+                    if($response == 0){
+                        echo json_encode([
+                            'status' => 'sucess',
+                            'message' => 'L\'utilisateur expulsé',
+                        ]);
+                
+                        exit;
+                    }elseif($response == 1){
+                        echo json_encode([
+                            'status' => 'error',
+                            'message' => 'Vous ne pouvez pas expulsé un utilisateur qui n\'à pas tout remboursé',
+                        ]);
+                
+                        exit;
+                    }elseif($response == 2){
+                        echo json_encode([
+                            'status' => 'error',
+                            'message' => 'Vous n\'êtes pas admin dans cette colocation',
+                        ]);
+                
+                        exit;
+                    }else{
+                        echo json_encode([
+                            'status' => 'error',
+                            'message' => 'Une erreur est survenue',
+                        ]);
+                
+                        exit;
+                    }
 
-    #[Route('/usersColoc', name:"user", methods:["GET"])]
-    public function usersColoc()
-    {
-        $PDO = new UserManager(new PDO());
-
-        $users = $PDO->getAllColocUser(1);
-
-
-        if($users){
-            foreach ($users as $user) {
-                $userInfo = [
-                    "id" => $user->getUser_Id(),
-                    "username" => $user->getUsername(),
-                    "email" => $user->getEmail(),
-                ];
-    
-                $userArray[] = $userInfo;
+            }else{
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'Vous êtes pas connecté',
+                ]);
+                exit;
             }
-            echo json_encode($userArray);
+        }else{
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'Une erreur est survenue',
+            ]);
+            exit;
         }
     }
+        
+    // #[Route('/usersColoc', name:"user", methods:["GET"])]
+    // public function usersColoc()
+    // {
+    //     $PDO = new UserManager(new PDO());
+
+    //     $users = $PDO->getAllColocUser(1);
+
+
+    //     if($users){
+    //         foreach ($users as $user) {
+    //             $userInfo = [
+    //                 "id" => $user->getUser_Id(),
+    //                 "username" => $user->getUsername(),
+    //                 "email" => $user->getEmail(),
+    //             ];
+    
+    //             $userArray[] = $userInfo;
+    //         }
+    //         echo json_encode($userArray);
+    //     }
+    // }
 }
