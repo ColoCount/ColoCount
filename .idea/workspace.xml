@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed66d65f-b8cd-4ac7-bda5-7a6e14049694" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Front/client/src/components/navBar/NavBar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front/client/src/components/navBar/NavBarToggle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Front/client/src/components/navBar/NavBarToggle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/client/src/components/navBar/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/client/src/components/navBar/NavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/client/src/pages/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/client/src/pages/Register/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front/client/src/pages/mesColocs/AddColoc.js" beforeDir="false" afterPath="$PROJECT_DIR$/Front/client/src/pages/mesColocs/AddColoc.js" afterDir="false" />
-    </list>
+    <list default="true" id="ed66d65f-b8cd-4ac7-bda5-7a6e14049694" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -40,29 +32,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/josephmenard-lansac/Documents/GitHub/ColoCount",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\PhpStorm 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pauli/Documents/GitHub/ColoCount/Front/client/public&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\PhpStorm 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\images\shapes" />
-      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\typo" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\public" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\css\components" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\css" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\images\photos" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\images\icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\css" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\pages" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\modales" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\css\pages" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\css\modales" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\css\components" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -77,6 +76,8 @@
       <workItem from="1673357433580" duration="5351000" />
       <workItem from="1673521763975" duration="4109000" />
       <workItem from="1673527092006" duration="4004000" />
+      <workItem from="1673722591908" duration="16136000" />
+      <workItem from="1673778817980" duration="2077000" />
     </task>
     <servers />
   </component>

@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6, p{
     margin: 0;
 }
 
-input, textarea{
+input, textarea, select{
     width: 100%;
     background: #FFFFFF;
     border: 1px solid #E0E0E0;
@@ -45,7 +45,7 @@ input, textarea{
     .fields-row{
         flex-direction: column;
     }
-    input{
+    input, textarea, select{
         border-radius: 15px;
         padding: 15px 20px;
         width: auto;
