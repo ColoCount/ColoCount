@@ -117,11 +117,14 @@ class UserManager extends BaseManager
         }
 
         $user_remove_id = $user_remove['user_id'];
+       
         if($admin && $user_remove){
             if($admin["user_id"]==$user_id){
                 if($user_remove["amount"] == 0){
                     $sql = "DELETE FROM `colocation_user` WHERE colocation_user.user_id = $user_remove_id and colocation_user.colocation_id = $id";
+                    $query = $this->pdo->query($sql);
                     $query->execute();
+
                     $response = 0;
                     return $response;
                 }
