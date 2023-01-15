@@ -41,7 +41,7 @@ return (
                       <div className="infos-box">
                           <p className="para-15 bold">Créé le: {colocation.created_at}</p>
                           <div className="icon-arrow box-shadow-1">
-                          <Link to="/NameColoc">
+                          <Link to={`/NameColoc/${colocation.id}`}>
                           <img src={iconArrow}/>
                           </Link>
                           </div>
