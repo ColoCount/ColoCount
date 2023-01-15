@@ -1,4 +1,6 @@
 # ColoCount
+voici le lien a git clone : 
+  https://github.com/ColoCount/ColoCount/tree/develop
 
 Pour lancer le projet faire dans le terminal : 
 <br>
@@ -19,5 +21,7 @@ cd front
 cd client
 <br>
 npm run start 
+
+
 
 vous avez ensuite les deux serveur qui se lance 
