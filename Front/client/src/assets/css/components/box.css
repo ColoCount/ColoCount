@@ -21,7 +21,7 @@
     position: fixed;
 }
 
-.modale .box-model{
+.modale > .box-model{
     height: auto;
     overflow: hidden;
     padding: 0;
@@ -32,7 +32,7 @@
     scrollbar-color: #2F0029 #F7F7F7;
     scrollbar-width: thin;
     padding: 40px 70px 50px;
-    height: 70vh;
+    max-height: 70vh;
     width: auto;
 }
 
@@ -59,7 +59,7 @@
     .box-model{
         padding: 20px 25px 30px;
     }
-    .modale div.box-model{
+    .modale > div.box-model{
         width: 70%;
     }
 }
@@ -69,7 +69,7 @@
         padding: 20px 25px 30px;
         border-radius: 15px;
     }
-    .modale div.box-model{
+    .modale > div.box-model{
         width: 90%;
     }
     .modale .box-model .box-model-scroll{
