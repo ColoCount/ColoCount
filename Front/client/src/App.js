@@ -15,6 +15,7 @@ import Home from './pages/Home/Home';
 import NameColoc from './pages/NameColoc/NameColoc';
 import EquilibreDepenses from './pages/EquilibreDepenses';
 import MonProfil from "./modales/modalMonProfil";
+import ModaleDepense from "./modales/modaleDepense";
 import Coloc from "./components/coloc/Coloc"
 import NavBar from './components/navBar/NavBar';
 import ReactDOM from 'react-dom/client';
@@ -33,6 +34,7 @@ function App() {
               <Route path='/NameColoc' element={<NameColoc />} />
               <Route path='/EquilibreDepenses' element={<EquilibreDepenses />} />
               <Route path='/AddColoc' element={<AddColoc />} />
+              <Route path='/ModaleDepense' element={<ModaleDepense />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
               <Route path='/MonProfil' element={<MonProfil />} />
