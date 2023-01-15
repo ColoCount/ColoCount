@@ -120,8 +120,7 @@ class UserManager extends BaseManager
         if($admin && $user_remove){
             if($admin["user_id"]==$user_id){
                 if($user_remove["amount"] == 0){
-                    $sql = "DELETE FROM `colocation_user` as cu WHERE cu.user_id $user_remove_id and cu.colocation_id =$id";
-
+                    $sql = "DELETE FROM `colocation_user` WHERE colocation_user.user_id = $user_remove_id and colocation_user.colocation_id = $id";
                     $query->execute();
                     $response = 0;
                     return $response;
