@@ -157,26 +157,4 @@ class UserController
             exit;
         }
     }
-        
-    // #[Route('/usersColoc', name:"user", methods:["GET"])]
-    // public function usersColoc()
-    // {
-    //     $PDO = new UserManager(new PDO());
-
-    //     $users = $PDO->getAllColocUser(1);
-
-
-    //     if($users){
-    //         foreach ($users as $user) {
-    //             $userInfo = [
-    //                 "id" => $user->getUser_Id(),
-    //                 "username" => $user->getUsername(),
-    //                 "email" => $user->getEmail(),
-    //             ];
-    
-    //             $userArray[] = $userInfo;
-    //         }
-    //         echo json_encode($userArray);
-    //     }
-    // }
 }

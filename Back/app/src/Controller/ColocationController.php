@@ -108,7 +108,7 @@ class ColocationController
         $cred = str_replace("Bearer ", "", getallheaders()['Authorization'] ?? getallheaders()['authorization'] ?? "");
         $token = JWTHelper::decodeJWT($cred);
         
-        // if($token){
+        if($token){
             if($_SERVER['REQUEST_METHOD'] == 'GET') {
     
                 $connexionColocation = new ColocationManager(new PDO());
@@ -124,7 +124,7 @@ class ColocationController
                             "message"=>"aucune info",
                         ]);
                         exit;
-                    }
+                    };
                     for ($i = 0; $i < count($infoColoc); $i++) {
                         $userInfo = [
                             'user_id'=>$infoColoc[$i][1]->getUser_Id(),
@@ -144,6 +144,7 @@ class ColocationController
                     ];
                     echo json_encode([
                         "status"=>"sucess",
+                        "message"=>"Pas de dépense ",
                         "InfoColoc"=>$allInfoColoc,
                         "depense"=>false,
                     ]);
@@ -507,12 +508,12 @@ class ColocationController
                 // echo "</pre>";
     
             }
-        // }else{
-        //     json_encode([
-        //         "status"=>"error",
-        //         "message"=>"une erreur est survenue"
-        //     ]);
-        // }
+        }else{
+            json_encode([
+                "status"=>"error",
+                "message"=>"une erreur est survenue"
+            ]);
+        }
     }
 
 }
