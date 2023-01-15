@@ -298,6 +298,8 @@ class ColocationController
                         unset ( $userAll [$key+2] );
                     }
                 }
+
+                $userAllCopie = $userAll;
                 
                 $user_max_amount = 0;
                 $user_min_amount = 0;
@@ -415,6 +417,9 @@ class ColocationController
                     
                 }
 
+                $userAll = $userAllCopie;
+
+                // $userAll
                 // echo"<pre>";
                 //     var_dump($Transaction);
                 //     // $userArray = $user
