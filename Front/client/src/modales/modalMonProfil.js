@@ -4,7 +4,6 @@ import ProfilPhoto from "../components/ProfilPhoto";
 import '../assets/css/modales/modale-mon-profile.css';
 
 
-
 const MonProfil = () => {
     const [username, setusername] = useState("");
     const [password, setpassword] = useState("");
@@ -27,7 +26,17 @@ const MonProfil = () => {
     //         .catch((err) => {
     //             console.log(err.message);
     //         });
+
     // }, []);
+
+     const componentDidMount = () => {
+        fetch('http://localhost:1501/users').then((response) => {
+            console.log(response.json());
+        })
+    }
+
+
+
 
     return (
         <div className='vh-100 modale modale-profile flex-center'>

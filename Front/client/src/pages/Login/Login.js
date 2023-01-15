@@ -48,12 +48,12 @@ const Login = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="fields-column">
                         <div className="fields-row">
-                            <input id="form3Example3" className="form-control form-control-lg" placeholder="Adresse email"  name="username"  type="text"
+                            <input id="loginEmail" className="form-control form-control-lg" placeholder="Adresse email"  name="username"  type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)} />
                         </div>
                         <div className="fields-row">
-                            <input id="form3Example3" className="form-control form-control-lg" placeholder="Mot de passe"  name="password"  type="password"
+                            <input id="loginPassword" className="form-control form-control-lg" placeholder="Mot de passe"  name="password"  type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}/>
                         </div>

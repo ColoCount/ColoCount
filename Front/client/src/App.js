@@ -1,3 +1,4 @@
+import React from "react";
 import './assets/css/reset.css';
 import './assets/css/texts.css';
 import './assets/css/components/buttons.css';
@@ -13,12 +14,11 @@ import AddColoc from './pages/mesColocs/AddColoc';
 import Home from './pages/Home/Home';
 import Coloc from "./components/coloc/Coloc"
 import NameColoc from './pages/NameColoc/NameColoc';
-import React from "react";
 import NavBar from './components/navBar/NavBar';
+import MonProfil from "./modales/modalMonProfil";
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBarToggle from "./components/navBar/NavBarToggle";
-import MonProfil from "./modales/modalMonProfil";
 
 function App() {
   return (
