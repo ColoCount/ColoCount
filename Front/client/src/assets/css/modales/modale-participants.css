@@ -44,7 +44,7 @@
     justify-content: space-between;
     gap: 8px;
     align-items: center;
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 10px;
     width: auto;
 }
@@ -58,6 +58,15 @@
     width: 45px;
 }
 
+
+.modale-participants .icon-delete{
+    display: flex;
+    width: 15px;
+    height: 15px;
+}
+.modale-participants .icon-delete img{
+    width: 100%;
+}
 
 
 @media screen and (max-width: 1024px){

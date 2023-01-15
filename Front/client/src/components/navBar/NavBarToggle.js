@@ -8,13 +8,13 @@ export default function NavBarToggle() {
             <div className="navbar-toggle">
                 <div className="menu-box box-shadow-1">
                     <ul className="menu">
-                        <li><Link to="/depenses">Les dépenses</Link></li>
-                        <li><Link to="/equilibre">L'équilibre</Link></li>
+                        <li><Link className="active" to="/NameColoc/:id">Les dépenses</Link></li>
+                        <li><Link to="">L'équilibre</Link></li>
                     </ul>
                 </div>
-                <div className="icon-participants box-shadow-1">
+                <Link to="/participants" className="icon-participants box-shadow-1">
                     <img src={iconParticipants}/>
-                </div>
+                </Link>
             </div>
         )
 }

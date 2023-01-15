@@ -11,7 +11,7 @@
 .navbar .logo {
     width: fit-content;
     padding-top: 20px;
-    font-family: 'Satoshi';
+    font-family: Satoshi, sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 45px;
@@ -42,7 +42,7 @@
     font-size: 16px;
     color: #2F0029;
     font-weight: 600;
-    font-family: 'Satoshi';
+    font-family: Satoshi, sans-serif;
     padding: 5px 0;
 }
 

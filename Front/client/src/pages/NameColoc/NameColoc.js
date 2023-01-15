@@ -129,31 +129,31 @@ return (
         <NavBarToggle />
         <div className="depenses-container">
             <h1 className="">Nom Coloc</h1>
-            <div className="bloc-btn btn-icon btn-add-depense">
-                <button>Ajouter une dépense</button>
-            </div>
+            <Link to="/ajout-remboursement" className="bloc-btn btn-icon btn-add-depense">
+              <button>Ajouter une dépense</button>
+            </Link>
             <Link to="/ModaleDepense">
-            <div className="depenses-list">
-                {items.map((item) =>
-                    <div className="box-model" key={item.id}>
-                        <div className="option-text">
-                            <p className="para-20 bold">{item.name} </p>
-                            <p className="para-16">Payé par {item.pseudo} </p>
-                        </div>
-                        <div className="depense-price">
-                            <p className="para-30 satoshi-bold">{item.price}€</p>
-                            <div className="image-option" onClick={handleOption}>
-                                <img src={iconOption}/>
-                            </div>
-                            <div className="box-model box-shadow-1 option-box">
-                                {options.map((option) => (
-                                    <p value={option.value}>{option.label}</p>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                )}
-            </div>
+              <div className="depenses-list">
+                  {items.map((item) =>
+                      <div className="box-model" key={item.id}>
+                          <div className="option-text">
+                              <p className="para-20 bold">{item.name} </p>
+                              <p className="para-16">Payé par {item.pseudo} </p>
+                          </div>
+                          <div className="depense-price">
+                              <p className="para-30 satoshi-bold">{item.price}€</p>
+                              <div className="image-option" onClick={handleOption}>
+                                  <img src={iconOption}/>
+                              </div>
+                              <div className="box-model box-shadow-1 option-box">
+                                  {options.map((option) => (
+                                      <p value={option.value}>{option.label}</p>
+                                  ))}
+                              </div>
+                          </div>
+                      </div>
+                  )}
+              </div>
             </Link>
         </div>
     </div>

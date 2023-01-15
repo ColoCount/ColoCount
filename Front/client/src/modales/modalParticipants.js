@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import '../assets/css/modales/modale-participants.css';
 import ProfilPhoto from "../components/ProfilPhoto";
+import iconADelete from "../assets/images/icons/cross-delete.svg";
 
 
 const ModalParticipants = () => {
@@ -33,7 +34,9 @@ const ModalParticipants = () => {
                                 <ProfilPhoto />
                                 <p className="para-18">{user.user_username}</p>
                             </div>
-                            <div className="image"></div>
+                            <div className="icon-delete">
+                                <img src={iconADelete}/>
+                            </div>
                         </div>
                     )}
                     </div>

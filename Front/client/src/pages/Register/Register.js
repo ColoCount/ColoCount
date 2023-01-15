@@ -68,7 +68,7 @@ const Register = () => {
                       </div>
                   </form>
               </div>
-              {/* <p className="para-16 medium text-center">Tu as déjà un compte ? <Link to="/" className="link" >Je me connecte</Link></p> */}
+              <p className="para-16 medium text-center link-reg-log">Tu as déjà un compte ? <Link className="link" to="/Login">Je me connecte</Link></p>
           </div>
       </div>
  

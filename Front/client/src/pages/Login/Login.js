@@ -57,6 +57,7 @@ const Login = () => {
                     </div>
                 </form>
             </div>
+          <p className="para-16 medium text-center link-reg-log">Tu n'as pas encore de compte ? <Link className="link" to="/Register">Je m'inscris</Link></p>
         </div>
         )}
     </div>

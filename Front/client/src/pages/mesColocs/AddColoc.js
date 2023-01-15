@@ -45,10 +45,10 @@ const AddColoc = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="fields-column two-fields">
                             <div className="fields-row mb-4">
-                                <input type="text" id="form3Example3" className="form-control form-control-lg" placeholder="Titre" value={titre} onChange={e => setTitre(e.target.value)} />
+                                <input type="text" id="" className="form-control form-control-lg" placeholder="Titre" value={titre} onChange={e => setTitre(e.target.value)} />
                             </div>
                             <div className="fields-row mb-4">
-                                <textarea type="text" id="form3Example3" className="form-control form-control-lg" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)}/>
+                                <textarea type="text" id="" className="form-control form-control-lg" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)}/>
                             </div>
                         </div>
                         {/* <div className="fields-column field-title">
