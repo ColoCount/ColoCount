@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import iconOption from "../../assets/images/icons/icon-option-depenses.svg";
 import NavBarToggle from "../../components/navBar/NavBarToggle";
 const NameColoc = () => {
@@ -131,6 +132,7 @@ return (
             <div className="bloc-btn btn-icon btn-add-depense">
                 <button>Ajouter une dépense</button>
             </div>
+            <Link to="/ModaleDepense">
             <div className="depenses-list">
                 {items.map((item) =>
                     <div className="box-model" key={item.id}>
@@ -152,6 +154,7 @@ return (
                     </div>
                 )}
             </div>
+            </Link>
         </div>
     </div>
 )

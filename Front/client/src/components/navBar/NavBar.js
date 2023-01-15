@@ -24,7 +24,7 @@ export default function NavBar() {
     return (
         <header className="navbar">
             <div className="logo">
-                <Link to="/Home">coloCount</Link>
+                <Link to="/">coloCount</Link>
             </div>
             <ul className="menu">
                 {isHome ?
