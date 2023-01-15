@@ -46,10 +46,12 @@ INSERT INTO `colocation` (`colocation_id`,`colocation_name`,`description`,`creat
 /* Création de la table `colocation_user` */
 DROP TABLE IF EXISTS `colocation_user`;
 CREATE TABLE IF NOT EXISTS `colocation_user` (
+    `id` integer(11) NOT NULL AUTO_INCREMENT,
     `colocation_id` integer(11) NOT NULL,
     `user_id` integer(11) NOT NULL,
     `amount` varchar(20) NOT NULL,
     `role` ENUM ('admin', 'user') DEFAULT 'user',
+    PRIMARY KEY (`id`),
     FOREIGN KEY(`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE,
     FOREIGN KEY(`colocation_id`) REFERENCES `colocation`(`colocation_id`) ON DELETE CASCADE
 );
@@ -97,10 +99,12 @@ INSERT INTO `charge` (`charge_id`,`name`,`charge_amount`,`type`,`category`,`crea
 /* Création de la table `charge_user` */
 DROP TABLE IF EXISTS `charge_user`;
 CREATE TABLE IF NOT EXISTS `charge_user` (
+    `id` integer(11) NOT NULL AUTO_INCREMENT,
     `user_id` integer(11) NOT NULL,
     `charge_username` varchar (30) NOT NULL,
     `charge_id` integer(11) NOT NULL,
     `role_charge` ENUM('paymaster','participant','paymaster_participant') DEFAULT 'paymaster',
+    PRIMARY KEY (`id`),
     FOREIGN KEY(`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE,
     FOREIGN KEY(`charge_id`) REFERENCES `charge`(`charge_id`) ON DELETE CASCADE
 );

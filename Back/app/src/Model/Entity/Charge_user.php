@@ -6,10 +6,30 @@ use App\Base\BaseEntity;
 
 final class Charge_user extends BaseEntity
 {
+    private int $id;
     private int $user_id;
     private string $charge_username;
     private int $charge_id;
     private string $role_charge;
+
+
+/**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $user_id
+     * @return Charge_user
+     */
+    public function setId(int $id): Charge_user
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     /**
      * @return int
