@@ -27,7 +27,7 @@
 
 /*LOGIN*/
 .page-login{
-    background-image: url("../images/shapes/shapes-login.svg");
+    background-image: url("../../images/shapes/shapes-login.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -36,11 +36,12 @@
 .login-container{
     width: 50%;
     max-width: 900px;
+    padding: 30px 0;
 }
 
 /*REGISTER*/
 .page-register{
-    background-image: url("../images/shapes/shapes-register.svg");
+    background-image: url("../../images/shapes/shapes-register.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -49,6 +50,7 @@
 .register-container{
     width: 70%;
     max-width: 1100px;
+    padding: 30px 0;
 }
 
 
@@ -56,6 +58,7 @@
     .register-container,
     .login-container{
         width: 90%;
+        padding: 10px 0;
     }
 }
 

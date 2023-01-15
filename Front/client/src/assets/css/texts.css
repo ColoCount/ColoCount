@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5{
     font-family: Satoshi, sans-serif;
     font-weight: 700;
     color: #2F0029;
-    line-height: 1.2em;
+    line-height: 1.1em;
 }
 
 h1{
@@ -53,11 +53,11 @@ h2.satoshi-reg{
     font-weight: 400;
 }
 
-h2.modale{
-    font-size: 50px;
+.modale h2{
+    font-size: 45px;
 }
-h3.modale{
-    font-size: 24px;
+.modale h3{
+    font-size: 22px;
     font-weight: 600;
 }
 
@@ -92,10 +92,11 @@ p.para-15{font-size: 15px;}
 p.para-16{font-size: 16px;}
 p.para-18{font-size: 18px;}
 p.para-20{font-size: 20px;}
+p.para-22{font-size: 22px;}
 p.para-24{font-size: 24px;}
 p.para-26{font-size: 26px;}
 p.para-30{font-size: 30px;}
-p.para-105{font-size: 105px;}
+p.para-105{font-size: 85px;}
 
 p.medium{font-weight: 500;}
 p.bold{font-weight: 600;}
@@ -105,12 +106,12 @@ p.green{color: #009D23;}
 
 
 
-input{
+input, textarea, select{
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     line-height: 1em;
     color: #2D2D2D;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .text-center{
@@ -120,31 +121,33 @@ input{
 @media screen and (max-width: 1024px){
     h1{font-size: 40px;}
     h2{font-size: 22px;}
-    h2.modale{font-size: 35px;}
-    h3.modale{font-size: 18px;}
+    .modale h2{font-size: 35px;}
+    .modale h3{font-size: 18px;}
     p.para-15{font-size: 15px;}
     p.para-16{font-size: 16px;}
     p.para-18{font-size: 18px;}
     p.para-20{font-size: 20px;}
+    p.para-22{font-size: 22px;}
     p.para-24{font-size: 24px;}
     p.para-26{font-size: 26px;}
     p.para-30{font-size: 30px;}
-    p.para-105{font-size: 105px;}
+    p.para-105{font-size: 70px;}
     input{font-size: 16px;}
 }
 
 @media screen and (max-width: 768px){
     h1{font-size: 30px;}
     h2{font-size: 22px;}
-    h2.modale{font-size: 35px;}
-    h3.modale{font-size: 18px;}
+    .modale h2{font-size: 35px;}
+    .modale h3{font-size: 18px;}
     p.para-15{font-size: 15px;}
-    p.para-16{font-size: 16px;}
-    p.para-18{font-size: 18px;}
-    p.para-20{font-size: 20px;}
-    p.para-24{font-size: 24px;}
-    p.para-26{font-size: 26px;}
-    p.para-30{font-size: 30px;}
-    p.para-105{font-size: 105px;}
+    p.para-16{font-size: 14px;}
+    p.para-18{font-size: 16px;}
+    p.para-20{font-size: 16px;}
+    p.para-24{font-size: 18px;}
+    p.para-22{font-size: 18px;}
+    p.para-26{font-size: 20px;}
+    p.para-30{font-size: 22px;}
+    p.para-105{font-size: 60px;}
     input{font-size: 16px;}
 }

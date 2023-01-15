@@ -12,8 +12,9 @@ class JWTHelper
     {
         
         $payload = [
-            "id" => $user->getId(),
+            "id" => $user->getUser_Id(),
             "username" => $user->getUsername(),
+            "email"=> $user->getEmail(),
             "exp" => (new \DateTime("+ 20 minutes"))->getTimestamp()
         ];
         return JWT::encode($payload, self::SECRET, "HS256");

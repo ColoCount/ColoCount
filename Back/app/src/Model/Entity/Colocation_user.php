@@ -6,10 +6,29 @@ use App\Base\BaseEntity;
 
 class Colocation_user extends BaseEntity
 {
+    private int $id;
     private int $colocation_id;
     private int $user_id;
     private float $amount;
     private string $role;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $colocation_id
+     * @return Colocation_user
+     */
+    public function setId(int $id): Colocation_user
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     /**
      * @return int

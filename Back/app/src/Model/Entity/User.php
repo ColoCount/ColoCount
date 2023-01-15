@@ -6,7 +6,7 @@ use App\Base\BaseEntity;
 
 final class User extends BaseEntity
 {
-    private int $id;
+    private int $user_id;
     private string $username;
     private string $email;
     private string $password;
@@ -17,17 +17,17 @@ final class User extends BaseEntity
     /**
      * @return int
      */
-    public function getId(): int
+    public function getUser_Id(): int
     {
-        return $this->id;
+        return $this->user_id;
     }
 
     /**
      * @param int $id
      */
-    public function setId(int $id): void
+    public function setUser_Id(int $user_id): void
     {
-        $this->id = $id;
+        $this->user_id = $user_id;
     }
 
     /**
@@ -41,7 +41,7 @@ final class User extends BaseEntity
     /**
      * @param string $userName
      */
-    public function setUserName(string $username): void
+    public function setUsername(string $username): void
     {
         $this->username = $username;
     }

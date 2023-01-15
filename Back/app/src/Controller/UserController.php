@@ -28,7 +28,7 @@ class UserController
                         
                         echo json_encode([
                             'status' => 'success',
-                            "id" => $user->getId(),
+                            "id" => $user->getUser_Id(),
                             'username' => $user->getUsername(),
                             'token' => $jwt
                         ]);
@@ -46,7 +46,7 @@ class UserController
         exit;
     }
 
-    #[Route('/register',name:'register', methods: ["POST"])]
+    #[Route('/register',name:'register.register', methods: ["POST"])]
     public function register()
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -82,7 +82,7 @@ class UserController
 
                         echo json_encode([
                             'status' => 'success',
-                            "id" => $user->getId(),
+                            "id" => $user->getUser_Id(),
                             'username' => $user->getUsername(),
                             'token' => $jwt
                         ]);
@@ -101,26 +101,222 @@ class UserController
         exit;
     }
 
+    #[ROUTE('/mes_colocs/{id}/remove_user/{user_id_remove}',name:'remove_user.remove',methods:["GET"])]
+    public function remove($id,$user_id_remove){
+        $cred = str_replace("Bearer ", "", getallheaders()['Authorization'] ?? getallheaders()['authorization'] ?? "");
+        $token = JWTHelper::decodeJWT($cred);
+        
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+            if($token){
+                    $user_id = $token->id;
+                    $connectioPDO = new UserManager(new PDO());
+                    $response = $connectioPDO->removeUser($id,$user_id,$user_id_remove);
+                    
+                    if($response == 0){
+                        echo json_encode([
+                            'status' => 'sucess',
+                            'message' => 'L\'utilisateur expulsé',
+                        ]);
+                
+                        exit;
+                    }elseif($response == 1){
+                        echo json_encode([
+                            'status' => 'error',
+                            'message' => 'Vous ne pouvez pas expulsé un utilisateur qui n\'à pas tout remboursé',
+                        ]);
+                
+                        exit;
+                    }elseif($response == 2){
+                        echo json_encode([
+                            'status' => 'error',
+                            'message' => 'Vous n\'êtes pas admin dans cette colocation',
+                        ]);
+                
+                        exit;
+                    }else{
+                        echo json_encode([
+                            'status' => 'error',
+                            'message' => 'Une erreur est survenue',
+                        ]);
+                
+                        exit;
+                    }
 
-    #[Route('/usersColoc', name:"user", methods:["GET"])]
-    public function usersColoc()
-    {
-        $PDO = new UserManager(new PDO());
-
-        $users = $PDO->getAllColocUser(1);
-
-
-        if($users){
-            foreach ($users as $user) {
-                $userInfo = [
-                    "id" => $user->getId(),
-                    "username" => $user->getUserName(),
-                    "email" => $user->getEmail(),
-                ];
-    
-                $userArray[] = $userInfo;
+            }else{
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'Vous êtes pas connecté',
+                ]);
+                exit;
             }
-            echo json_encode($userArray);
+        }else{
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'Une erreur est survenue',
+            ]);
+            exit;
         }
+    }
+
+    #[ROUTE('/mes_colocs/edit/mon_compte',name:"mes_colocs/mon_compte.editUser",methods:["POST"])]
+    public function editUser(){
+        {
+            $cred = str_replace("Bearer ", "", getallheaders()['Authorization'] ?? getallheaders()['authorization'] ?? "");
+            $token = JWTHelper::decodeJWT($cred);
+            if($token){
+                $id = $token->id;
+            }
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        
+                    if (isset($_POST["username"], $_POST["old_password"], $_POST['password'],$_POST['confirm_password'])) {
+                        
+                        if(!empty($_POST['password']) && !empty($_POST['confirm_password']) && !empty($_POST['old_password']) && !empty($_POST['username'])){
+                       
+                            // TOUT MODIF
+                            $username = htmlspecialchars(strip_tags($_POST['username']));
+                            $password = htmlspecialchars(strip_tags($_POST['password']));
+                            $confirm_password = htmlspecialchars(strip_tags($_POST['confirm_password']));
+                            $old_password = htmlspecialchars(strip_tags($_POST['old_password']));
+                           
+                            if($confirm_password != $password){
+                                echo json_encode([
+                                    'status' => 'error',
+                                    'message' => 'Pas de modification'
+                                ]);
+                                exit;
+                            }
+   
+                            $connectionPdo = new UserManager(new PDO());
+                            $user = $connectionPdo->getUserById($id);
+                
+                            if($user){
+                                if(!password_verify($old_password,$user->getPassword())){
+                                    echo json_encode([
+                                        'status' => 'error',
+                                        'message' => 'Pas le bon mot de passe',
+                                    ]);
+                                    exit;
+                                }
+
+                                
+                                $password = password_hash($password,PASSWORD_DEFAULT);
+
+                                $connectionPdo = new UserManager(new PDO());    
+                                $user = $connectionPdo->updateUserAll($id,$username, $password);
+                                
+                                $jwt = JWTHelper::buildJWT($user);
+    
+                                CookieHelper::setCookie($jwt);
+        
+                                echo json_encode([
+                                    'status' => 'success',
+                                    'message' => 'Modication effectué',
+                                    "id" => $user->getUser_Id(),
+                                    'username' => $user->getUsername(),
+                                    'token' => $jwt
+                                ]);
+                                exit;
+                            }
+                                echo json_encode([
+                                    'status' => 'error',
+                                    'message' => 'Une erreur est survenue',
+                                ]);
+                                exit;
+
+                        }elseif(!empty($_POST['password']) && !empty($_POST['confirm_password']) && !empty($_POST['old_password']) && empty($_POST['username'])){
+                            $password = htmlspecialchars(strip_tags($_POST['password']));
+                            $confirm_password = htmlspecialchars(strip_tags($_POST['confirm_password']));
+                            $old_password = htmlspecialchars(strip_tags($_POST['old_password']));
+                           
+                            if($confirm_password != $password){
+                                echo json_encode([
+                                    'status' => 'error',
+                                    'message' => 'Pas de modification'
+                                ]);
+                                exit;
+                            }
+   
+                            $connectionPdo = new UserManager(new PDO());
+                            $user = $connectionPdo->getUserById($id);
+                
+                            if($user){
+                                if(!password_verify($old_password,$user->getPassword())){
+                                    echo json_encode([
+                                        'status' => 'error',
+                                        'message' => 'Pas le bon mot de passe',
+                                    ]);
+                                    exit;
+                                }
+
+                                
+                                $password = password_hash($password,PASSWORD_DEFAULT);
+
+                                $connectionPdo = new UserManager(new PDO());    
+                                $user = $connectionPdo->updateUserPassword($id, $password);
+                                
+                                $jwt = JWTHelper::buildJWT($user);
+    
+                                CookieHelper::setCookie($jwt);
+        
+                                echo json_encode([
+                                    'status' => 'success',
+                                    'message' => 'Modication effectué',
+                                    "id" => $user->getUser_Id(),
+                                    'username' => $user->getUsername(),
+                                    'token' => $jwt
+                                ]);
+                                exit;
+                            }
+                                echo json_encode([
+                                    'status' => 'error',
+                                    'message' => 'Une erreur est survenue',
+                                ]);
+                                exit;
+                            
+                        }elseif(empty($_POST['password']) && empty($_POST['confirm_password']) && empty($_POST['old_password']) && !empty($_POST['username'])){
+                            $username = htmlspecialchars(strip_tags($_POST['username']));
+                            $connectionPdo = new UserManager(new PDO());
+                            $user = $connectionPdo->getUserById($id);
+
+                            if($user){
+                        
+                                $connectionPdo = new UserManager(new PDO());    
+                                $user = $connectionPdo->updateUserUsername($id,$username);
+                                
+                                $jwt = JWTHelper::buildJWT($user);
+    
+                                CookieHelper::setCookie($jwt);
+        
+                                echo json_encode([
+                                    'status' => 'success',
+                                    'message' => 'Modication effectué',
+                                    "id" => $user->getUser_Id(),
+                                    'username' => $user->getUsername(),
+                                    'token' => $jwt
+                                ]);
+                                exit;
+                            }
+                                echo json_encode([
+                                    'status' => 'error',
+                                    'message' => 'Une erreur est survenue',
+                                ]);
+                                exit;
+
+                        }echo json_encode([
+                            'status' => 'error',
+                            'message' => 'Une erreur est survenue',
+                        ]);
+                        exit;
+                    }
+                }
+    
+            }
+    
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'Pas de d\'inscription'
+            ]);
+            exit;
     }
 }

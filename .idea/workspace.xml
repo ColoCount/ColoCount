@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed66d65f-b8cd-4ac7-bda5-7a6e14049694" name="Changes" comment="" >
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/database/colo_count.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Back/database/colo_count.sql" afterDir="false" />
-    </list>
-
+    <list default="true" id="ed66d65f-b8cd-4ac7-bda5-7a6e14049694" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -41,9 +37,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pauli/Documents/GitHub/ColoCount/Front/client/src/assets/images/shapes&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pauli/Documents/GitHub/ColoCount/Front/client/public&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/josephmenard-lansac/Documents/GitHub/ColoCount&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -55,11 +50,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\images\shapes" />
-      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\typo" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\public" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\css\components" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\css" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\images\photos" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\images\icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\css" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\pages" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\modales" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\css\pages" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\css\modales" />
+      <recent name="C:\Users\pauli\Documents\GitHub\ColoCount\Front\client\src\assets\css\components" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -74,6 +76,8 @@
       <workItem from="1673357433580" duration="5351000" />
       <workItem from="1673521763975" duration="4109000" />
       <workItem from="1673527092006" duration="4004000" />
+      <workItem from="1673722591908" duration="16136000" />
+      <workItem from="1673778817980" duration="2077000" />
     </task>
     <servers />
   </component>

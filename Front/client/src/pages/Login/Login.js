@@ -1,42 +1,64 @@
 import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../../AuthContext/apiCalls';
 import { AuthContext } from '../../AuthContext/AuthContext';
 
 const Login = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const { dispatch } = useContext(AuthContext);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const {logout, login, isAuthenticated } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-
-    const handleLogin = (e) => {
-        e.preventDefault();
-        login({ username, password }, dispatch);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await login(username, password);
+      navigate('/');
+    } catch (err) {
+      setError(err.message);
     }
-  
+  };
+
+  const handleLogout = () => {
+    logout();
+  }
+
 
   return (
+    
     <div className='vh-100 page page-login page-log-reg flex-center'>
+     {isAuthenticated ? (
+        <>
+          <p>You are logged in.</p>
+          <button onClick={handleLogout}>Logout</button>
+        </>
+      ) : (
         <div className='login-container' >
             <h2 className="title-regular text-center">Bienvenue sur <br/><span>ColoCount</span></h2>
             <div className="box-shadow-1 box-model">
                 <h1 className="text-center">Se connecter</h1>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="fields-column">
-                        <div className="fields-row mb-4">
-                            <input id="form3Example3" className="form-control form-control-lg" placeholder="Adresse email"  type="text"  onChange={(e) => setUsername(e.target.value)} />
+                        <div className="fields-row">
+                            <input id="loginEmail" className="form-control form-control-lg" placeholder="Adresse email"  name="username"  type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)} />
                         </div>
-                        <div className="fields-row mb-4">
-                            <input id="form3Example3" className="form-control form-control-lg" placeholder="Mot de passe" type="password"  onChange={(e) => setPassword(e.target.value)}/>
+                        <div className="fields-row">
+                            <input id="loginPassword" className="form-control form-control-lg" placeholder="Mot de passe"  name="password"  type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}/>
                         </div>
                     </div>
                     <div className="bloc-btn">
-                        <button type="submit" className="btn btn-primary btn-lg" onClick={handleLogin} >Je me connecte</button>
+                    {error && <p className="error">{error}</p>}
+                        <button type="submit" >Je me connecte</button>
                     </div>
-                    {/* <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account?</p><Link to={"/register"}></Link> */}
                 </form>
             </div>
-            <p className="para-16 medium text-center">Tu n’as pas encore de compte ? <a className="link" href="#">Je m'inscris</a></p>
         </div>
+        )}
     </div>
 
   )
