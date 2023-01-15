@@ -6,18 +6,24 @@ const Coloc = () => {
   const [colocations, setColocations] = useState([]);
   const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  setLoading(true);
-  fetch('http://localhost:1501/mes_colocs')
-    .then(response => response.json())
-    .then(data =>{setColocations (data[0])
-      console.log(data.data)
-    })
+  useEffect(() => {
+    setLoading(true);
+    const token = localStorage.getItem('token');
+    const headers = {
+      "Content-type":  "application/x-www-form-urlencoded"
+    };
+    if (token) {
+      headers.Authorization = `Bearer ${token}`;
+    }
+    fetch('http://localhost:1501/mes_colocs', { headers })
+      .then(response => response.json())
+      .then(data =>{setColocations (data[0])
+        console.log(data.data)
+      })
+      .catch(error => console.log(error))
+      .finally(() => setLoading(false));
+  }, []);
 
-    .catch(error => console.log(error))
-    .finally(() => setLoading(false));
-    
-}, []);
 
 if (loading) {
   return <p>Loading...</p>;

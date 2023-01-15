@@ -59,7 +59,7 @@ const MonProfil = () => {
                                     <div className="img-wrap img-upload">
                                         <img htmlFor="photo-upload" src="Front/client/src/modales/modalMonProfil"/>
                                     </div>
-                                    <input id="photo-upload" type="file" onChange={(e) => setProfilPicture(e.target.value)}/>
+                                    {/* <input id="photo-upload" type="file" onChange={(e) => setProfilPicture(e.target.value)}/> */}
                                 </div>
                             </div>
                             <button type="submit" onClick={handleUser} className="link para-16 medium text-center" >Mettre à jour ma photo</button>
@@ -98,16 +98,16 @@ const MonProfil = () => {
                         <form className="form-profil form-password">
                             <div className="fields-column tree-fields password">
                                 <div className="fields-row">
-                                    <input type="text" id="ancien" className="form-control form-control-lg" placeholder="Ancien mot de passe" onChange={(e) => setancienPwd(e.target.value)}/>
+                                    {/* <input type="text" id="ancien" className="form-control form-control-lg" placeholder="Ancien mot de passe" onChange={(e) => setancienPwd(e.target.value)}/> */}
                                 </div>
                                 <div className="fields-row">
-                                    <input type="text" id="nouveau" className="form-control form-control-lg" placeholder="Nouveau mot de passe" onChange={(e) => setnouveauPwd(e.target.value)}/>
+                                    {/* <input type="text" id="nouveau" className="form-control form-control-lg" placeholder="Nouveau mot de passe" onChange={(e) => setnouveauPwd(e.target.value)}/> */}
                                 </div>
                                 <div className="fields-row">
-                                    <input type="text" id="confirmation" className="form-control form-control-lg" placeholder="Confirmation du nouveau mot de passe" onChange={(e) => setconfNouveauPwd(e.target.value)}/>
+                                    {/* <input type="text" id="confirmation" className="form-control form-control-lg" placeholder="Confirmation du nouveau mot de passe" onChange={(e) => setconfNouveauPwd(e.target.value)}/> */}
                                 </div>
                             </div>
-                            <button type="submit" onClick={handleUser} className="link para-16 medium text-center" >Modifier mon mot de passe</button>
+                            {/* <button type="submit" onClick={handleUser} className="link para-16 medium text-center" >Modifier mon mot de passe</button> */}
                         </form>
                     </div>
                 </div>
