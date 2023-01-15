@@ -49,7 +49,9 @@ return (
               ))}
           </div>
           <div className="bloc-btn btn-icon btn-add-coloc">
-              <button type="submit" >Ajouter une coloc</button>
+          <Link to="/AddColoc">
+          <button type="submit" >Ajouter une coloc</button>
+          </Link>
           </div>
       </div>
   </div>

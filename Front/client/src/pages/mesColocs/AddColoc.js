@@ -1,28 +1,39 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import {login} from "../../AuthContext/apiCalls";
 
 
 const AddColoc = () => {
-    const [titre, setTitre] = useState('');
+  const [titre, setTitre] = useState('');
   const [description, setDescription] = useState('');
+//   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    fetch('http://localhost:1501/add_coloc', {
-        method: "POST",
-        mode: "cors",
-        body: new URLSearchParams({
-                titre, description
-            }),
-        credentials: "include",  
-        headers: new Headers({
-                // "Authorization" : "Basic amZnbWFpbC5jb206cGFzc3dvcmQ=",
-                "Content-type":  "application/x-www-form-urlencoded"
-            })
-    })
+    // Récupération du token stocké dans le localStorage
+    const token = localStorage.getItem('token');
 
-    .then(data => data.json())
+    // Création de l'en-tête avec le token d'authentification
+    const headers = {
+        "Content-type":  "application/x-www-form-urlencoded",
+        'Authorization': `Bearer ${token}`
+    };
+
+    // Envoi de la requête pour ajouter une colocation
+    try {
+      const response = await fetch('http://localhost:1501/add_coloc', {
+        method: 'POST',
+        mode: "cors",
+        credentials: "include",
+        headers,
+        body: new URLSearchParams({ titre, description })
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
     return (
